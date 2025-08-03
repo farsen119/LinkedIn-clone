@@ -4,22 +4,43 @@ from django.contrib.auth import authenticate
 from .models import Profile
 
 class UserSerializer(serializers.ModelSerializer):
+    profile_photo = serializers.SerializerMethodField()
+    bio = serializers.SerializerMethodField()
+    
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'profile_photo', 'bio']
+    
+    def get_profile_photo(self, obj):
+        try:
+            if obj.profile.profile_photo:
+                return self.context['request'].build_absolute_uri(obj.profile.profile_photo.url)
+            return None
+        except:
+            return None
+    
+    def get_bio(self, obj):
+        try:
+            return obj.profile.bio
+        except:
+            return ''
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
+    profile_photo = serializers.ImageField(required=False)
 
     class Meta:
         model = User
-        fields = ['email', 'password', 'first_name', 'last_name']
+        fields = ['email', 'password', 'first_name', 'last_name', 'profile_photo']
 
     def create(self, validated_data):
         # Check if email already exists
         email = validated_data['email']
         if User.objects.filter(email=email).exists():
             raise serializers.ValidationError({'email': 'A user with this email already exists.'})
+        
+        # Extract profile photo from validated data
+        profile_photo = validated_data.pop('profile_photo', None)
         
         # Generate username from email
         username = email.split('@')[0]
@@ -33,7 +54,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         
         validated_data['username'] = username
         user = User.objects.create_user(**validated_data)
-        Profile.objects.create(user=user, bio='')
+        Profile.objects.create(user=user, bio='', profile_photo=profile_photo)
         return user
 
 class LoginSerializer(serializers.Serializer):

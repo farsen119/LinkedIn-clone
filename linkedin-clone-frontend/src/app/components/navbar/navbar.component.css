@@ -64,6 +64,35 @@
   gap: 1rem;
 }
 
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0077b5;
+}
+
+.user-avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0077b5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 2px solid #0077b5;
+}
+
 .user-name {
   color: #333;
   font-weight: 500;
@@ -84,4 +113,158 @@
 
 .logout-btn:hover {
   background-color: #c82333;
+}
+
+/* Profile Popup Styles */
+.profile-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  z-index: 1000;
+  margin-top: 8px;
+  border: 1px solid #e0e0e0;
+  animation: slideDown 0.3s ease-out;
+}
+
+.popup-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.popup-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0077b5;
+}
+
+.popup-avatar-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #0077b5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: 3px solid #0077b5;
+}
+
+.popup-user-info {
+  flex: 1;
+}
+
+.popup-name {
+  margin: 0 0 0.25rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.popup-email {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.popup-bio {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.popup-bio h4 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.popup-bio p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.no-bio {
+  color: #999 !important;
+  font-style: italic;
+}
+
+.popup-actions {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popup-close-btn {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup-close-btn:hover {
+  background-color: #005885;
+}
+
+/* Make avatars clickable */
+.user-avatar,
+.user-avatar-placeholder {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-avatar:hover,
+.user-avatar-placeholder:hover {
+  transform: scale(1.05);
+}
+
+.dropdown-arrow {
+  color: #0077b5;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.dropdown-arrow:hover {
+  color: #005885;
+}
+
+/* Rotate arrow when popup is open */
+.user-info .dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Animation for popup */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Position the user menu relative for popup positioning */
+.user-menu {
+  position: relative;
 }

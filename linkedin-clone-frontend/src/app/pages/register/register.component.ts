@@ -16,8 +16,12 @@ export class RegisterComponent {
     first_name: '',
     last_name: '',
     email: '',
-    password: ''
+    password: '',
+    profile_photo: undefined as File | undefined
   };
+
+  selectedFile: File | null = null;
+  previewUrl: string | null = null;
 
   isLoading = false;
   errorMessage = '';
@@ -25,6 +29,27 @@ export class RegisterComponent {
   showSuccessPopup = false;
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.registerData.profile_photo = file;
+      
+      // Create preview URL
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.previewUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  removePhoto() {
+    this.selectedFile = null;
+    this.previewUrl = null;
+    this.registerData.profile_photo = undefined;
+  }
 
   register() {
     this.isLoading = true;

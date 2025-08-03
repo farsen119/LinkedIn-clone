@@ -10,6 +10,7 @@ export interface RegisterData {
   last_name: string;
   email: string;
   password: string;
+  profile_photo?: File;
 }
 
 export interface LoginData {
@@ -26,6 +27,8 @@ export interface AuthResponse {
     email: string;
     first_name: string;
     last_name: string;
+    profile_photo?: string;
+    bio?: string;
   };
 }
 
@@ -55,7 +58,17 @@ export class AuthService {
   }
 
   register(data: RegisterData): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register/`, data)
+    const formData = new FormData();
+    formData.append('first_name', data.first_name);
+    formData.append('last_name', data.last_name);
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    
+    if (data.profile_photo) {
+      formData.append('profile_photo', data.profile_photo);
+    }
+
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register/`, formData)
       .pipe(
         tap(response => {
           this.setTokens(response.access_token, response.refresh_token);
