@@ -1,3 +1,21 @@
+/* Simplified Home Page for Non-Authenticated Users */
+.home-container-simple {
+  background-color: #f3f2ef;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.main-feed-simple {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Full LinkedIn Layout for Authenticated Users */
 .home-container {
   background-color: #f3f2ef;
   min-height: 100vh;
@@ -447,7 +465,24 @@
   color: #191919;
 }
 
-/* Responsive Design */
+/* Responsive Design for Simplified Layout */
+@media (max-width: 768px) {
+  .home-container-simple {
+    padding: 16px;
+  }
+  
+  .main-feed-simple {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container-simple {
+    padding: 12px;
+  }
+}
+
+/* Responsive Design for Full Layout */
 @media (max-width: 1200px) {
   .home-container {
     grid-template-columns: 280px 1fr 280px;

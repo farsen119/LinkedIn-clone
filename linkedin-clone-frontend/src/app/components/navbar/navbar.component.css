@@ -22,6 +22,19 @@
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo i {
+  font-size: 2rem;
+  color: #0077b5;
+}
+
+.nav-logo span {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .nav-menu {
@@ -288,4 +301,23 @@
 /* Position the user menu relative for popup positioning */
 .user-menu {
   position: relative;
+}
+
+/* Responsive design for navbar */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-logo span {
+    display: none;
+  }
+  
+  .nav-logo i {
+    font-size: 1.8rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
 }

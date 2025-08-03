@@ -1,4 +1,12 @@
-<div class="home-container">
+<!-- Simplified Home Page for Non-Authenticated Users -->
+<div *ngIf="!isLoggedIn" class="home-container-simple">
+  <div class="main-feed-simple">
+    <app-post></app-post>
+  </div>
+</div>
+
+<!-- Full LinkedIn Layout for Authenticated Users -->
+<div *ngIf="isLoggedIn" class="home-container">
   <!-- Left Sidebar -->
   <div class="left-sidebar">
     <div class="sidebar-section">

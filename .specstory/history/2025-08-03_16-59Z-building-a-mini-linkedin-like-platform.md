@@ -23070,3 +23070,1678 @@ The home page now has a clean, consistent light theme that matches LinkedIn's de
 
 ---
 
+_**User**_
+
+in navbar the linkdn icon  iwnat 
+
+---
+
+_**Assistant**_
+
+I'll help you add the LinkedIn icon to the navbar. Let me first check the current navbar structure and then add the LinkedIn icon.
+
+
+---
+
+Read file: linkedin-clone-frontend/src/app/components/navbar/navbar.component.html
+
+---
+
+Now I'll update the navbar to include the LinkedIn icon. I'll replace the text "LinkedIn Clone" with the actual LinkedIn icon.
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/components/navbar/navbar.component.html</summary>
+
+I'm replacing the text "LinkedIn Clone" with the LinkedIn icon using Font Awesome.
+
+**Chunk 1**
+Lines added: 4, lines removed: 1
+
+```diff
+@@ -2,5 +2,8 @@
+    <div class="nav-container">
+      <div class="nav-logo">
+-       <a routerLink="/">LinkedIn Clone</a>
++       <a routerLink="/">
++         <i class="fab fa-linkedin"></i>
++         <span>LinkedIn Clone</span>
++       </a>
+      </div>
+  
+```
+
+**Chunk 2**
+Lines added: 47, lines removed: 47
+
+```diff
+@@ -13,52 +16,52 @@
+        </ng-container>
+  
+-                                                  <ng-template #loggedInMenu>
+-                                           <div class="user-menu">
+-                        <div class="user-info">
+-                          <img 
+-                            *ngIf="user?.profile_photo" 
+-                            [src]="user.profile_photo" 
+-                            alt="Profile" 
+-                            class="user-avatar"
+-                            (click)="toggleProfilePopup($event)"
+-                          >
+-                          <div *ngIf="!user?.profile_photo" class="user-avatar-placeholder" (click)="toggleProfilePopup($event)">
+-                            {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+-                          </div>
+-                          <span class="dropdown-arrow" [class.open]="showProfilePopup" (click)="toggleProfilePopup($event)">▼</span>
+-                        </div>
+-                        <button (click)="logout()" class="logout-btn">Logout</button>
+-                      </div>
++       <ng-template #loggedInMenu>
++         <div class="user-menu">
++           <div class="user-info">
++             <img 
++               *ngIf="user?.profile_photo" 
++               [src]="user.profile_photo" 
++               alt="Profile" 
++               class="user-avatar"
++               (click)="toggleProfilePopup($event)"
++             >
++             <div *ngIf="!user?.profile_photo" class="user-avatar-placeholder" (click)="toggleProfilePopup($event)">
++               {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
++             </div>
++             <span class="dropdown-arrow" [class.open]="showProfilePopup" (click)="toggleProfilePopup($event)">▼</span>
++           </div>
++           <button (click)="logout()" class="logout-btn">Logout</button>
++         </div>
+  
+-                      <!-- Profile Popup -->
+-                      <div *ngIf="showProfilePopup" class="profile-popup">
+-                        <div class="popup-header">
+-                          <img 
+-                            *ngIf="user?.profile_photo" 
+-                            [src]="user.profile_photo" 
+-                            alt="Profile" 
+-                            class="popup-avatar"
+-                          >
+-                          <div *ngIf="!user?.profile_photo" class="popup-avatar-placeholder">
+-                            {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+-                          </div>
+-                          <div class="popup-user-info">
+-                            <h3 class="popup-name">{{ user?.first_name }} {{ user?.last_name }}</h3>
+-                            <p class="popup-email">{{ user?.email }}</p>
+-                          </div>
+-                        </div>
+-                                                <div class="popup-bio">
+-                           <h4>Bio</h4>
+-                           <p *ngIf="user?.bio; else noBio">{{ user.bio }}</p>
+-                           <ng-template #noBio>
+-                             <p class="no-bio">No bio added yet.</p>
+-                           </ng-template>
+-                         </div>
+-                         <div class="popup-actions">
+-                           <a routerLink="/profile" (click)="closeProfilePopup()" class="popup-profile-btn">View Profile</a>
+-                           <button (click)="closeProfilePopup()" class="popup-close-btn">Close</button>
+-                         </div>
+-                      </div>
+-                   </ng-template>
++         <!-- Profile Popup -->
++         <div *ngIf="showProfilePopup" class="profile-popup">
++           <div class="popup-header">
++             <img 
++               *ngIf="user?.profile_photo" 
++               [src]="user.profile_photo" 
++               alt="Profile" 
++               class="popup-avatar"
++             >
++             <div *ngIf="!user?.profile_photo" class="popup-avatar-placeholder">
++               {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
++             </div>
++             <div class="popup-user-info">
++               <h3 class="popup-name">{{ user?.first_name }} {{ user?.last_name }}</h3>
++               <p class="popup-email">{{ user?.email }}</p>
++             </div>
++           </div>
++           <div class="popup-bio">
++             <h4>Bio</h4>
++             <p *ngIf="user?.bio; else noBio">{{ user.bio }}</p>
++             <ng-template #noBio>
++               <p class="no-bio">No bio added yet.</p>
++             </ng-template>
++           </div>
++           <div class="popup-actions">
++             <a routerLink="/profile" (click)="closeProfilePopup()" class="popup-profile-btn">View Profile</a>
++             <button (click)="closeProfilePopup()" class="popup-close-btn">Close</button>
++           </div>
++         </div>
++       </ng-template>
+      </div>
+    </div>
+```
+
+</details>
+
+---
+
+Now I need to update the CSS to style the LinkedIn icon properly. Let me check the current navbar CSS and add styles for the icon.
+
+
+---
+
+Could not find file 'linkedin-clone-frontend/src/app/components/navbar/navbar.component.scss' in the workspace.
+
+---
+
+Let me check what CSS file exists for the navbar component.
+
+
+---
+
+<details>
+            <summary>Searched codebase "navbar.component" • **4** results</summary>
+        
+| File |
+|------|
+| `c:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone\linkedin-clone-frontend\src\app\components\navbar\navbar.component.html` |
+| `c:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone\linkedin-clone-frontend\src\app\components\navbar\navbar.component.ts` |
+| `c:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone\linkedin-clone-frontend\src\app\components\navbar\navbar.component.css` |
+| `c:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone\linkedin-clone-frontend\src\app\components\navbar\navbar.component.spec.ts` |
+
+</details>
+
+---
+
+Read file: linkedin-clone-frontend/src/app/components/navbar/navbar.component.css
+
+---
+
+Now I'll update the CSS to style the LinkedIn icon properly in the navbar logo.
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/components/navbar/navbar.component.css</summary>
+
+I'm updating the nav-logo styles to properly display the LinkedIn icon alongside the text.
+
+**Chunk 1**
+Lines added: 13, lines removed: undefined
+
+```diff
+@@ -23,4 +23,17 @@
+    font-size: 1.5rem;
+    font-weight: 600;
++   display: flex;
++   align-items: center;
++   gap: 0.5rem;
++ }
++ 
++ .nav-logo i {
++   font-size: 2rem;
++   color: #0077b5;
++ }
++ 
++ .nav-logo span {
++   font-size: 1.5rem;
++   font-weight: 600;
+  }
+  
+```
+
+**Chunk 2**
+Lines added: 19, lines removed: undefined
+
+```diff
+@@ -290,3 +303,22 @@
+    position: relative;
+  }
++ 
++ /* Responsive design for navbar */
++ @media (max-width: 768px) {
++   .nav-container {
++     padding: 0 1rem;
++   }
++   
++   .nav-logo span {
++     display: none;
++   }
++   
++   .nav-logo i {
++     font-size: 1.8rem;
++   }
++   
++   .nav-menu {
++     gap: 1rem;
++   }
++ }
+  
+```
+
+</details>
+
+---
+
+Perfect! ✅ **LinkedIn Icon Added Successfully!**
+
+## 🎯 **What I've Done:**
+
+### **🔗 Added LinkedIn Icon to Navbar:**
+- **📱 Icon**: Added `<i class="fab fa-linkedin"></i>` to the navbar logo
+- **�� Styling**: Updated CSS to display icon and text side by side
+- **📱 Responsive**: On mobile, only the icon shows (text hidden)
+
+### **�� Icon Features:**
+
+#### **��️ Desktop View:**
+- **🔵 LinkedIn Icon**: Large blue icon (`#0077b5`)
+- **📝 Text**: "LinkedIn Clone" next to the icon
+- **🎯 Layout**: Flexbox with gap between icon and text
+
+#### **📱 Mobile View:**
+- **🔵 Icon Only**: Only the LinkedIn icon displays
+- **📝 Hidden Text**: "LinkedIn Clone" text is hidden
+- **📏 Smaller Icon**: Slightly smaller icon size for mobile
+
+#### **🎨 Styling Details:**
+- **🔵 Color**: LinkedIn blue (`#0077b5`)
+- **📏 Size**: 2rem on desktop, 1.8rem on mobile
+- **🎯 Alignment**: Centered vertically with text
+- **📱 Responsive**: Adapts to screen size
+
+### **✨ Visual Result:**
+The navbar now displays the official LinkedIn icon alongside "LinkedIn Clone" text, creating a more professional and recognizable brand appearance! 🚀
+
+The icon will automatically use the Font Awesome LinkedIn icon that's already included in your project.
+
+---
+
+_**User**_
+
+in hoem paeg without login i want diffrent style i want 
+
+---
+
+_**Assistant**_
+
+I understand you want a different style for the home page when users are not logged in. Let me help you create a different layout for non-authenticated users.
+
+First, let me check the current home component to see how it's structured:
+
+
+---
+
+Read file: linkedin-clone-frontend/src/app/pages/home/home.component.html
+
+---
+
+Now let me check the home component TypeScript to see how authentication is handled:
+
+
+---
+
+Read file: linkedin-clone-frontend/src/app/pages/home/home.component.ts
+
+---
+
+Now I'll create a different layout for non-authenticated users. I'll update the home component to show a landing page style when users are not logged in.
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.ts</summary>
+
+I'm adding authentication check and methods to handle different layouts for logged in vs non-logged in users.
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -14,4 +14,5 @@
+  export class HomeComponent implements OnInit {
+    currentUser: any;
++   isLoggedIn: boolean = false;
+    private platformId = inject(PLATFORM_ID);
+  
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -26,4 +27,5 @@
+    loadUserData(): void {
+      this.currentUser = this.authService.getUser();
++     this.isLoggedIn = this.authService.isLoggedIn();
+    }
+  
+```
+
+</details>
+
+---
+
+Now I'll update the HTML template to show different layouts based on authentication status:
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.html</summary>
+
+I'm creating a conditional layout that shows a landing page for non-authenticated users and the full LinkedIn-style layout for authenticated users.
+
+**Chunk 1**
+Lines added: 83, lines removed: 1
+
+```diff
+@@ -1,3 +1,85 @@
+- <div class="home-container">
++ <!-- Landing Page for Non-Authenticated Users -->
++ <div *ngIf="!isLoggedIn" class="landing-container">
++   <div class="landing-hero">
++     <div class="hero-content">
++       <div class="hero-text">
++         <h1 class="hero-title">
++           <i class="fab fa-linkedin"></i>
++           Welcome to LinkedIn Clone
++         </h1>
++         <p class="hero-subtitle">Connect with professionals, share your thoughts, and grow your network</p>
++         <div class="hero-features">
++           <div class="feature-item">
++             <i class="fas fa-users"></i>
++             <span>Connect with professionals</span>
++           </div>
++           <div class="feature-item">
++             <i class="fas fa-share-alt"></i>
++             <span>Share posts and updates</span>
++           </div>
++           <div class="feature-item">
++             <i class="fas fa-chart-line"></i>
++             <span>Build your professional brand</span>
++           </div>
++         </div>
++         <div class="hero-actions">
++           <button routerLink="/register" class="cta-btn primary">Join Now</button>
++           <button routerLink="/login" class="cta-btn secondary">Sign In</button>
++         </div>
++       </div>
++       <div class="hero-image">
++         <div class="mockup-container">
++           <div class="mockup-screen">
++             <div class="mockup-header">
++               <div class="mockup-avatar"></div>
++               <div class="mockup-text"></div>
++             </div>
++             <div class="mockup-content">
++               <div class="mockup-post"></div>
++               <div class="mockup-post"></div>
++             </div>
++           </div>
++         </div>
++       </div>
++     </div>
++   </div>
++ 
++   <div class="landing-features">
++     <div class="features-grid">
++       <div class="feature-card">
++         <div class="feature-icon">
++           <i class="fas fa-network-wired"></i>
++         </div>
++         <h3>Professional Network</h3>
++         <p>Connect with colleagues, industry leaders, and potential collaborators</p>
++       </div>
++       <div class="feature-card">
++         <div class="feature-icon">
++           <i class="fas fa-bullhorn"></i>
++         </div>
++         <h3>Share Your Voice</h3>
++         <p>Post updates, share insights, and engage with your professional community</p>
++       </div>
++       <div class="feature-card">
++         <div class="feature-icon">
++           <i class="fas fa-search"></i>
++         </div>
++         <h3>Discover Opportunities</h3>
++         <p>Find job opportunities, industry trends, and professional development resources</p>
++       </div>
++     </div>
++   </div>
++ 
++   <div class="landing-cta">
++     <div class="cta-content">
++       <h2>Ready to grow your professional network?</h2>
++       <p>Join thousands of professionals who are already building their careers</p>
++       <button routerLink="/register" class="cta-btn primary large">Get Started Today</button>
++     </div>
++   </div>
++ </div>
++ 
++ <!-- Full LinkedIn Layout for Authenticated Users -->
++ <div *ngIf="isLoggedIn" class="home-container">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+```
+
+</details>
+
+---
+
+Now I need to add the CSS styles for the landing page. Let me update the SCSS file:
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.scss</summary>
+
+I'm adding comprehensive CSS styles for the landing page layout that shows when users are not logged in.
+
+**Chunk 1**
+Lines added: 354, lines removed: undefined
+
+```diff
+@@ -1,2 +1,356 @@
++ /* Landing Page Styles for Non-Authenticated Users */
++ .landing-container {
++   min-height: 100vh;
++   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
++ }
++ 
++ .landing-hero {
++   padding: 80px 20px;
++   max-width: 1200px;
++   margin: 0 auto;
++ }
++ 
++ .hero-content {
++   display: grid;
++   grid-template-columns: 1fr 1fr;
++   gap: 60px;
++   align-items: center;
++ }
++ 
++ .hero-text {
++   max-width: 500px;
++ }
++ 
++ .hero-title {
++   font-size: 3.5rem;
++   font-weight: 700;
++   color: #191919;
++   margin: 0 0 20px 0;
++   line-height: 1.2;
++   display: flex;
++   align-items: center;
++   gap: 15px;
++ }
++ 
++ .hero-title i {
++   color: #0077b5;
++   font-size: 3rem;
++ }
++ 
++ .hero-subtitle {
++   font-size: 1.3rem;
++   color: #666;
++   margin: 0 0 40px 0;
++   line-height: 1.6;
++ }
++ 
++ .hero-features {
++   margin-bottom: 40px;
++ }
++ 
++ .feature-item {
++   display: flex;
++   align-items: center;
++   gap: 15px;
++   margin-bottom: 20px;
++   font-size: 1.1rem;
++   color: #333;
++ }
++ 
++ .feature-item i {
++   color: #0077b5;
++   font-size: 1.2rem;
++   width: 20px;
++ }
++ 
++ .hero-actions {
++   display: flex;
++   gap: 20px;
++   flex-wrap: wrap;
++ }
++ 
++ .cta-btn {
++   padding: 15px 30px;
++   border-radius: 25px;
++   font-size: 1.1rem;
++   font-weight: 600;
++   cursor: pointer;
++   transition: all 0.3s ease;
++   border: none;
++   text-decoration: none;
++   display: inline-block;
++   text-align: center;
++ }
++ 
++ .cta-btn.primary {
++   background: #0077b5;
++   color: white;
++ }
++ 
++ .cta-btn.primary:hover {
++   background: #005885;
++   transform: translateY(-2px);
++   box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
++ }
++ 
++ .cta-btn.secondary {
++   background: transparent;
++   color: #0077b5;
++   border: 2px solid #0077b5;
++ }
++ 
++ .cta-btn.secondary:hover {
++   background: #0077b5;
++   color: white;
++   transform: translateY(-2px);
++ }
++ 
++ .cta-btn.large {
++   padding: 18px 40px;
++   font-size: 1.2rem;
++ }
++ 
++ .hero-image {
++   display: flex;
++   justify-content: center;
++   align-items: center;
++ }
++ 
++ .mockup-container {
++   position: relative;
++   width: 400px;
++   height: 500px;
++ }
++ 
++ .mockup-screen {
++   background: white;
++   border-radius: 20px;
++   padding: 30px;
++   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
++   border: 1px solid #e0e0e0;
++ }
++ 
++ .mockup-header {
++   display: flex;
++   align-items: center;
++   gap: 15px;
++   margin-bottom: 30px;
++ }
++ 
++ .mockup-avatar {
++   width: 50px;
++   height: 50px;
++   border-radius: 50%;
++   background: linear-gradient(135deg, #0077b5, #00a0dc);
++ }
++ 
++ .mockup-text {
++   flex: 1;
++   height: 20px;
++   background: #f0f0f0;
++   border-radius: 10px;
++ }
++ 
++ .mockup-content {
++   display: flex;
++   flex-direction: column;
++   gap: 20px;
++ }
++ 
++ .mockup-post {
++   height: 80px;
++   background: #f8f9fa;
++   border-radius: 10px;
++   border: 1px solid #e0e0e0;
++ }
++ 
++ /* Features Section */
++ .landing-features {
++   padding: 80px 20px;
++   background: white;
++ }
++ 
++ .features-grid {
++   max-width: 1200px;
++   margin: 0 auto;
++   display: grid;
++   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
++   gap: 40px;
++ }
++ 
++ .feature-card {
++   text-align: center;
++   padding: 40px 30px;
++   border-radius: 15px;
++   background: #f8f9fa;
++   transition: transform 0.3s ease;
++ }
++ 
++ .feature-card:hover {
++   transform: translateY(-5px);
++ }
++ 
++ .feature-icon {
++   width: 80px;
++   height: 80px;
++   background: linear-gradient(135deg, #0077b5, #00a0dc);
++   border-radius: 50%;
++   display: flex;
++   align-items: center;
++   justify-content: center;
++   margin: 0 auto 25px;
++ }
++ 
++ .feature-icon i {
++   font-size: 2rem;
++   color: white;
++ }
++ 
++ .feature-card h3 {
++   font-size: 1.5rem;
++   font-weight: 600;
++   color: #191919;
++   margin: 0 0 15px 0;
++ }
++ 
++ .feature-card p {
++   color: #666;
++   line-height: 1.6;
++   margin: 0;
++ }
++ 
++ /* CTA Section */
++ .landing-cta {
++   padding: 80px 20px;
++   background: linear-gradient(135deg, #0077b5, #00a0dc);
++   color: white;
++   text-align: center;
++ }
++ 
++ .cta-content {
++   max-width: 600px;
++   margin: 0 auto;
++ }
++ 
++ .cta-content h2 {
++   font-size: 2.5rem;
++   font-weight: 700;
++   margin: 0 0 20px 0;
++ }
++ 
++ .cta-content p {
++   font-size: 1.2rem;
++   margin: 0 0 40px 0;
++   opacity: 0.9;
++ }
++ 
++ .cta-content .cta-btn.primary {
++   background: white;
++   color: #0077b5;
++ }
++ 
++ .cta-content .cta-btn.primary:hover {
++   background: #f8f9fa;
++   transform: translateY(-2px);
++   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
++ }
++ 
++ /* Responsive Design for Landing Page */
++ @media (max-width: 1024px) {
++   .hero-content {
++     grid-template-columns: 1fr;
++     gap: 40px;
++     text-align: center;
++   }
++   
++   .hero-text {
++     max-width: 100%;
++   }
++   
++   .hero-title {
++     font-size: 2.8rem;
++     justify-content: center;
++   }
++   
++   .hero-actions {
++     justify-content: center;
++   }
++ }
++ 
++ @media (max-width: 768px) {
++   .landing-hero {
++     padding: 60px 20px;
++   }
++   
++   .hero-title {
++     font-size: 2.2rem;
++   }
++   
++   .hero-subtitle {
++     font-size: 1.1rem;
++   }
++   
++   .feature-item {
++     font-size: 1rem;
++   }
++   
++   .cta-btn {
++     padding: 12px 25px;
++     font-size: 1rem;
++   }
++   
++   .features-grid {
++     grid-template-columns: 1fr;
++     gap: 30px;
++   }
++   
++   .feature-card {
++     padding: 30px 20px;
++   }
++   
++   .cta-content h2 {
++     font-size: 2rem;
++   }
++   
++   .cta-content p {
++     font-size: 1.1rem;
++   }
++   
++   .mockup-container {
++     width: 300px;
++     height: 400px;
++   }
++   
++   .mockup-screen {
++     padding: 20px;
++   }
++ }
++ 
++ @media (max-width: 480px) {
++   .hero-title {
++     font-size: 1.8rem;
++   }
++   
++   .hero-subtitle {
++     font-size: 1rem;
++   }
++   
++   .hero-actions {
++     flex-direction: column;
++     align-items: center;
++   }
++   
++   .cta-btn {
++     width: 100%;
++     max-width: 250px;
++   }
++   
++   .mockup-container {
++     width: 250px;
++     height: 350px;
++   }
++ }
++ 
++ /* Original Home Container Styles for Authenticated Users */
+  .home-container {
+    background-color: #f3f2ef;
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -448,5 +802,5 @@
+  }
+  
+- /* Responsive Design */
++ /* Responsive Design for Authenticated Layout */
+  @media (max-width: 1200px) {
+    .home-container {
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Different Home Page Styles Implemented Successfully!**
+
+## 🎯 **What I've Created:**
+
+### **�� Two Different Home Page Layouts:**
+
+#### **📱 For Non-Authenticated Users (Landing Page):**
+- **🎨 Modern Landing Design**: Clean, professional landing page
+- **🔵 Hero Section**: Large LinkedIn icon with welcome message
+- **�� Feature Highlights**: Key benefits of the platform
+- **�� Call-to-Action Buttons**: "Join Now" and "Sign In" buttons
+- **📱 Mockup Preview**: Visual preview of the platform
+- **🎨 Feature Cards**: Three main features with icons
+- **🔵 Final CTA**: Bottom section encouraging sign-up
+
+#### **🏠 For Authenticated Users (Full LinkedIn Layout):**
+- **📊 Three-Column Layout**: Left sidebar, main feed, right sidebar
+- **👤 Profile Card**: User profile with photo and bio
+- **📈 Stats Section**: Profile views and post impressions
+- **👑 Premium Card**: Premium features promotion
+- **📝 My Items**: Quick access to user content
+- **📰 News Feed**: LinkedIn-style news and updates
+- **�� People Suggestions**: Network recommendations
+- **📚 Learning Section**: Course recommendations
+
+### **🎨 Design Features:**
+
+#### **📱 Landing Page Elements:**
+- **🔵 LinkedIn Branding**: Official LinkedIn colors and icon
+- **📱 Responsive Design**: Works on all screen sizes
+- **�� Clear CTAs**: Prominent buttons for registration/login
+- **📊 Feature Showcase**: Professional network benefits
+- **�� Modern UI**: Clean gradients and smooth animations
+
+#### **🏠 Authenticated Layout:**
+- **📊 LinkedIn-Style Grid**: Three-column responsive layout
+- **👤 User Profile**: Personalized profile information
+- **📰 Content Feed**: Post creation and viewing
+- **🎯 Interactive Elements**: Hover effects and transitions
+
+### **�� Responsive Design:**
+- **🖥️ Desktop**: Full three-column layout
+- **📱 Tablet**: Two-column layout (sidebar + main)
+- **📱 Mobile**: Single column with reordered sections
+- **📱 Small Mobile**: Optimized for small screens
+
+### **🎯 User Experience:**
+- **🚀 Seamless Transition**: Different experiences based on login status
+- **🎨 Professional Look**: LinkedIn-inspired design
+- **📱 Mobile-First**: Responsive across all devices
+- **⚡ Fast Loading**: Optimized CSS and layout
+
+Now when users visit the home page:
+- **❌ Not Logged In**: See a beautiful landing page encouraging them to join
+- **✅ Logged In**: See the full LinkedIn-style feed with all features
+
+The landing page will help convert visitors into users, while the authenticated layout provides the full social networking experience! 🚀
+
+---
+
+_**User**_
+
+revert this 
+
+---
+
+_**Assistant**_
+
+I'll revert the changes and restore the original home page layout without the conditional landing page.
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.ts</summary>
+
+I'm reverting the home component TypeScript to the original version without the authentication check.
+
+**Chunk 1**
+Lines added: undefined, lines removed: 1
+
+```diff
+@@ -14,5 +14,4 @@
+  export class HomeComponent implements OnInit {
+    currentUser: any;
+-   isLoggedIn: boolean = false;
+    private platformId = inject(PLATFORM_ID);
+  
+```
+
+**Chunk 2**
+Lines added: undefined, lines removed: 1
+
+```diff
+@@ -27,5 +26,4 @@
+    loadUserData(): void {
+      this.currentUser = this.authService.getUser();
+-     this.isLoggedIn = this.authService.isLoggedIn();
+    }
+  
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.html</summary>
+
+I'm reverting the home component HTML to the original LinkedIn-style layout without the conditional landing page.
+
+**Chunk 1**
+Lines added: 1, lines removed: 83
+
+```diff
+@@ -1,85 +1,3 @@
+- <!-- Landing Page for Non-Authenticated Users -->
+- <div *ngIf="!isLoggedIn" class="landing-container">
+-   <div class="landing-hero">
+-     <div class="hero-content">
+-       <div class="hero-text">
+-         <h1 class="hero-title">
+-           <i class="fab fa-linkedin"></i>
+-           Welcome to LinkedIn Clone
+-         </h1>
+-         <p class="hero-subtitle">Connect with professionals, share your thoughts, and grow your network</p>
+-         <div class="hero-features">
+-           <div class="feature-item">
+-             <i class="fas fa-users"></i>
+-             <span>Connect with professionals</span>
+-           </div>
+-           <div class="feature-item">
+-             <i class="fas fa-share-alt"></i>
+-             <span>Share posts and updates</span>
+-           </div>
+-           <div class="feature-item">
+-             <i class="fas fa-chart-line"></i>
+-             <span>Build your professional brand</span>
+-           </div>
+-         </div>
+-         <div class="hero-actions">
+-           <button routerLink="/register" class="cta-btn primary">Join Now</button>
+-           <button routerLink="/login" class="cta-btn secondary">Sign In</button>
+-         </div>
+-       </div>
+-       <div class="hero-image">
+-         <div class="mockup-container">
+-           <div class="mockup-screen">
+-             <div class="mockup-header">
+-               <div class="mockup-avatar"></div>
+-               <div class="mockup-text"></div>
+-             </div>
+-             <div class="mockup-content">
+-               <div class="mockup-post"></div>
+-               <div class="mockup-post"></div>
+-             </div>
+-           </div>
+-         </div>
+-       </div>
+-     </div>
+-   </div>
+- 
+-   <div class="landing-features">
+-     <div class="features-grid">
+-       <div class="feature-card">
+-         <div class="feature-icon">
+-           <i class="fas fa-network-wired"></i>
+-         </div>
+-         <h3>Professional Network</h3>
+-         <p>Connect with colleagues, industry leaders, and potential collaborators</p>
+-       </div>
+-       <div class="feature-card">
+-         <div class="feature-icon">
+-           <i class="fas fa-bullhorn"></i>
+-         </div>
+-         <h3>Share Your Voice</h3>
+-         <p>Post updates, share insights, and engage with your professional community</p>
+-       </div>
+-       <div class="feature-card">
+-         <div class="feature-icon">
+-           <i class="fas fa-search"></i>
+-         </div>
+-         <h3>Discover Opportunities</h3>
+-         <p>Find job opportunities, industry trends, and professional development resources</p>
+-       </div>
+-     </div>
+-   </div>
+- 
+-   <div class="landing-cta">
+-     <div class="cta-content">
+-       <h2>Ready to grow your professional network?</h2>
+-       <p>Join thousands of professionals who are already building their careers</p>
+-       <button routerLink="/register" class="cta-btn primary large">Get Started Today</button>
+-     </div>
+-   </div>
+- </div>
+- 
+- <!-- Full LinkedIn Layout for Authenticated Users -->
+- <div *ngIf="isLoggedIn" class="home-container">
++ <div class="home-container">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.scss</summary>
+
+I'm reverting the SCSS file to the original LinkedIn-style layout without the landing page styles.
+
+**Chunk 1**
+Lines added: undefined, lines removed: 354
+
+```diff
+@@ -1,356 +1,2 @@
+- /* Landing Page Styles for Non-Authenticated Users */
+- .landing-container {
+-   min-height: 100vh;
+-   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+- }
+- 
+- .landing-hero {
+-   padding: 80px 20px;
+-   max-width: 1200px;
+-   margin: 0 auto;
+- }
+- 
+- .hero-content {
+-   display: grid;
+-   grid-template-columns: 1fr 1fr;
+-   gap: 60px;
+-   align-items: center;
+- }
+- 
+- .hero-text {
+-   max-width: 500px;
+- }
+- 
+- .hero-title {
+-   font-size: 3.5rem;
+-   font-weight: 700;
+-   color: #191919;
+-   margin: 0 0 20px 0;
+-   line-height: 1.2;
+-   display: flex;
+-   align-items: center;
+-   gap: 15px;
+- }
+- 
+- .hero-title i {
+-   color: #0077b5;
+-   font-size: 3rem;
+- }
+- 
+- .hero-subtitle {
+-   font-size: 1.3rem;
+-   color: #666;
+-   margin: 0 0 40px 0;
+-   line-height: 1.6;
+- }
+- 
+- .hero-features {
+-   margin-bottom: 40px;
+- }
+- 
+- .feature-item {
+-   display: flex;
+-   align-items: center;
+-   gap: 15px;
+-   margin-bottom: 20px;
+-   font-size: 1.1rem;
+-   color: #333;
+- }
+- 
+- .feature-item i {
+-   color: #0077b5;
+-   font-size: 1.2rem;
+-   width: 20px;
+- }
+- 
+- .hero-actions {
+-   display: flex;
+-   gap: 20px;
+-   flex-wrap: wrap;
+- }
+- 
+- .cta-btn {
+-   padding: 15px 30px;
+-   border-radius: 25px;
+-   font-size: 1.1rem;
+-   font-weight: 600;
+-   cursor: pointer;
+-   transition: all 0.3s ease;
+-   border: none;
+-   text-decoration: none;
+-   display: inline-block;
+-   text-align: center;
+- }
+- 
+- .cta-btn.primary {
+-   background: #0077b5;
+-   color: white;
+- }
+- 
+- .cta-btn.primary:hover {
+-   background: #005885;
+-   transform: translateY(-2px);
+-   box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+- }
+- 
+- .cta-btn.secondary {
+-   background: transparent;
+-   color: #0077b5;
+-   border: 2px solid #0077b5;
+- }
+- 
+- .cta-btn.secondary:hover {
+-   background: #0077b5;
+-   color: white;
+-   transform: translateY(-2px);
+- }
+- 
+- .cta-btn.large {
+-   padding: 18px 40px;
+-   font-size: 1.2rem;
+- }
+- 
+- .hero-image {
+-   display: flex;
+-   justify-content: center;
+-   align-items: center;
+- }
+- 
+- .mockup-container {
+-   position: relative;
+-   width: 400px;
+-   height: 500px;
+- }
+- 
+- .mockup-screen {
+-   background: white;
+-   border-radius: 20px;
+-   padding: 30px;
+-   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+-   border: 1px solid #e0e0e0;
+- }
+- 
+- .mockup-header {
+-   display: flex;
+-   align-items: center;
+-   gap: 15px;
+-   margin-bottom: 30px;
+- }
+- 
+- .mockup-avatar {
+-   width: 50px;
+-   height: 50px;
+-   border-radius: 50%;
+-   background: linear-gradient(135deg, #0077b5, #00a0dc);
+- }
+- 
+- .mockup-text {
+-   flex: 1;
+-   height: 20px;
+-   background: #f0f0f0;
+-   border-radius: 10px;
+- }
+- 
+- .mockup-content {
+-   display: flex;
+-   flex-direction: column;
+-   gap: 20px;
+- }
+- 
+- .mockup-post {
+-   height: 80px;
+-   background: #f8f9fa;
+-   border-radius: 10px;
+-   border: 1px solid #e0e0e0;
+- }
+- 
+- /* Features Section */
+- .landing-features {
+-   padding: 80px 20px;
+-   background: white;
+- }
+- 
+- .features-grid {
+-   max-width: 1200px;
+-   margin: 0 auto;
+-   display: grid;
+-   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+-   gap: 40px;
+- }
+- 
+- .feature-card {
+-   text-align: center;
+-   padding: 40px 30px;
+-   border-radius: 15px;
+-   background: #f8f9fa;
+-   transition: transform 0.3s ease;
+- }
+- 
+- .feature-card:hover {
+-   transform: translateY(-5px);
+- }
+- 
+- .feature-icon {
+-   width: 80px;
+-   height: 80px;
+-   background: linear-gradient(135deg, #0077b5, #00a0dc);
+-   border-radius: 50%;
+-   display: flex;
+-   align-items: center;
+-   justify-content: center;
+-   margin: 0 auto 25px;
+- }
+- 
+- .feature-icon i {
+-   font-size: 2rem;
+-   color: white;
+- }
+- 
+- .feature-card h3 {
+-   font-size: 1.5rem;
+-   font-weight: 600;
+-   color: #191919;
+-   margin: 0 0 15px 0;
+- }
+- 
+- .feature-card p {
+-   color: #666;
+-   line-height: 1.6;
+-   margin: 0;
+- }
+- 
+- /* CTA Section */
+- .landing-cta {
+-   padding: 80px 20px;
+-   background: linear-gradient(135deg, #0077b5, #00a0dc);
+-   color: white;
+-   text-align: center;
+- }
+- 
+- .cta-content {
+-   max-width: 600px;
+-   margin: 0 auto;
+- }
+- 
+- .cta-content h2 {
+-   font-size: 2.5rem;
+-   font-weight: 700;
+-   margin: 0 0 20px 0;
+- }
+- 
+- .cta-content p {
+-   font-size: 1.2rem;
+-   margin: 0 0 40px 0;
+-   opacity: 0.9;
+- }
+- 
+- .cta-content .cta-btn.primary {
+-   background: white;
+-   color: #0077b5;
+- }
+- 
+- .cta-content .cta-btn.primary:hover {
+-   background: #f8f9fa;
+-   transform: translateY(-2px);
+-   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+- }
+- 
+- /* Responsive Design for Landing Page */
+- @media (max-width: 1024px) {
+-   .hero-content {
+-     grid-template-columns: 1fr;
+-     gap: 40px;
+-     text-align: center;
+-   }
+-   
+-   .hero-text {
+-     max-width: 100%;
+-   }
+-   
+-   .hero-title {
+-     font-size: 2.8rem;
+-     justify-content: center;
+-   }
+-   
+-   .hero-actions {
+-     justify-content: center;
+-   }
+- }
+- 
+- @media (max-width: 768px) {
+-   .landing-hero {
+-     padding: 60px 20px;
+-   }
+-   
+-   .hero-title {
+-     font-size: 2.2rem;
+-   }
+-   
+-   .hero-subtitle {
+-     font-size: 1.1rem;
+-   }
+-   
+-   .feature-item {
+-     font-size: 1rem;
+-   }
+-   
+-   .cta-btn {
+-     padding: 12px 25px;
+-     font-size: 1rem;
+-   }
+-   
+-   .features-grid {
+-     grid-template-columns: 1fr;
+-     gap: 30px;
+-   }
+-   
+-   .feature-card {
+-     padding: 30px 20px;
+-   }
+-   
+-   .cta-content h2 {
+-     font-size: 2rem;
+-   }
+-   
+-   .cta-content p {
+-     font-size: 1.1rem;
+-   }
+-   
+-   .mockup-container {
+-     width: 300px;
+-     height: 400px;
+-   }
+-   
+-   .mockup-screen {
+-     padding: 20px;
+-   }
+- }
+- 
+- @media (max-width: 480px) {
+-   .hero-title {
+-     font-size: 1.8rem;
+-   }
+-   
+-   .hero-subtitle {
+-     font-size: 1rem;
+-   }
+-   
+-   .hero-actions {
+-     flex-direction: column;
+-     align-items: center;
+-   }
+-   
+-   .cta-btn {
+-     width: 100%;
+-     max-width: 250px;
+-   }
+-   
+-   .mockup-container {
+-     width: 250px;
+-     height: 350px;
+-   }
+- }
+- 
+- /* Original Home Container Styles for Authenticated Users */
+  .home-container {
+    background-color: #f3f2ef;
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -802,5 +448,5 @@
+  }
+  
+- /* Responsive Design for Authenticated Layout */
++ /* Responsive Design */
+  @media (max-width: 1200px) {
+    .home-container {
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Successfully Reverted All Changes!**
+
+## 🎯 **What I've Reverted:**
+
+### **🔄 Restored Original Home Page Layout:**
+
+#### **📱 TypeScript Component:**
+- **❌ Removed**: `isLoggedIn` property
+- **❌ Removed**: Authentication check logic
+- **✅ Restored**: Original simple component structure
+
+#### **�� HTML Template:**
+- **❌ Removed**: Landing page for non-authenticated users
+- **❌ Removed**: Conditional layout logic
+- **✅ Restored**: Single LinkedIn-style layout for all users
+
+#### **📱 SCSS Styles:**
+- **❌ Removed**: All landing page styles
+- **❌ Removed**: Hero section, feature cards, CTA sections
+- **✅ Restored**: Original LinkedIn-style three-column layout
+
+### **🏠 Current Home Page Features:**
+
+#### **📊 Layout Structure:**
+- **📱 Left Sidebar**: Profile card, stats, premium, my items
+- **📰 Main Feed**: Post component with create/view posts
+- **📱 Right Sidebar**: News, people suggestions, learning
+
+#### **🎨 Design Elements:**
+- **�� LinkedIn Colors**: Professional blue theme
+- **📱 Responsive**: Works on all screen sizes
+- **🎯 Interactive**: Hover effects and transitions
+- **📊 Grid Layout**: Three-column responsive design
+
+### **🎯 User Experience:**
+- **🏠 Single Layout**: Same experience for all users
+- **📱 Consistent Design**: LinkedIn-inspired interface
+- **🎨 Clean Code**: Removed all conditional complexity
+- **⚡ Simple Structure**: Easy to maintain and modify
+
+The home page is now back to its original LinkedIn-style layout that works for all users, regardless of authentication status! 🚀
+
+---
+
+_**User**_
+
+i mean the without login in the hoem page ,i dont want teh profile section ,my items ,peple may know theses i dont want without login ,with login only show theses 
+
+---
+
+_**Assistant**_
+
+I understand! You want to show a simplified home page for non-authenticated users (without profile section, my items, people suggestions) and show the full LinkedIn layout only for authenticated users. Let me implement this.
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.ts</summary>
+
+I'm adding authentication check to show different layouts based on login status.
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -14,4 +14,5 @@
+  export class HomeComponent implements OnInit {
+    currentUser: any;
++   isLoggedIn: boolean = false;
+    private platformId = inject(PLATFORM_ID);
+  
+```
+
+**Chunk 2**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -26,4 +27,5 @@
+    loadUserData(): void {
+      this.currentUser = this.authService.getUser();
++     this.isLoggedIn = this.authService.isLoggedIn();
+    }
+  
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.html</summary>
+
+I'm creating a conditional layout that shows a simplified home page for non-authenticated users (only main feed) and the full LinkedIn layout for authenticated users.
+
+**Chunk 1**
+Lines added: 9, lines removed: 1
+
+```diff
+@@ -1,3 +1,11 @@
+- <div class="home-container">
++ <!-- Simplified Home Page for Non-Authenticated Users -->
++ <div *ngIf="!isLoggedIn" class="home-container-simple">
++   <div class="main-feed-simple">
++     <app-post></app-post>
++   </div>
++ </div>
++ 
++ <!-- Full LinkedIn Layout for Authenticated Users -->
++ <div *ngIf="isLoggedIn" class="home-container">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+```
+
+</details>
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/app/pages/home/home.component.scss</summary>
+
+I'm adding CSS styles for the simplified home page layout for non-authenticated users.
+
+**Chunk 1**
+Lines added: 18, lines removed: undefined
+
+```diff
+@@ -1,2 +1,20 @@
++ /* Simplified Home Page for Non-Authenticated Users */
++ .home-container-simple {
++   background-color: #f3f2ef;
++   min-height: 100vh;
++   display: flex;
++   justify-content: center;
++   padding: 24px;
++ }
++ 
++ .main-feed-simple {
++   max-width: 600px;
++   width: 100%;
++   display: flex;
++   flex-direction: column;
++   gap: 16px;
++ }
++ 
++ /* Full LinkedIn Layout for Authenticated Users */
+  .home-container {
+    background-color: #f3f2ef;
+```
+
+**Chunk 2**
+Lines added: 18, lines removed: 1
+
+```diff
+@@ -448,5 +466,22 @@
+  }
+  
+- /* Responsive Design */
++ /* Responsive Design for Simplified Layout */
++ @media (max-width: 768px) {
++   .home-container-simple {
++     padding: 16px;
++   }
++   
++   .main-feed-simple {
++     max-width: 100%;
++   }
++ }
++ 
++ @media (max-width: 480px) {
++   .home-container-simple {
++     padding: 12px;
++   }
++ }
++ 
++ /* Responsive Design for Full Layout */
+  @media (max-width: 1200px) {
+    .home-container {
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Conditional Home Page Layout Implemented Successfully!**
+
+## 🎯 **What I've Created:**
+
+### **�� Two Different Home Page Experiences:**
+
+#### **❌ For Non-Authenticated Users (Simple Layout):**
+- **📰 Main Feed Only**: Just the post component in the center
+- **�� Centered Layout**: Clean, focused design
+- **�� Optimized Width**: 600px max-width for better readability
+- **�� Same Background**: LinkedIn-style background color
+- **📱 Responsive**: Adapts to all screen sizes
+
+#### **✅ For Authenticated Users (Full LinkedIn Layout):**
+- **📊 Three-Column Layout**: Left sidebar, main feed, right sidebar
+- **👤 Profile Card**: User profile with photo and bio
+- **📈 Stats Section**: Profile views and post impressions
+- **👑 Premium Card**: Premium features promotion
+- **📝 My Items**: Quick access to user content
+- **📰 News Feed**: LinkedIn-style news and updates
+- **�� People Suggestions**: Network recommendations
+- **📚 Learning Section**: Course recommendations
+
+### **🎨 Design Features:**
+
+#### **�� Simple Layout (Non-Authenticated):**
+- **�� Focused Content**: Only the post feed is visible
+- **�� Centered Design**: Clean, distraction-free layout
+- **🎨 Professional Look**: Same LinkedIn styling
+- **�� Mobile-Friendly**: Responsive across all devices
+
+#### **🏠 Full Layout (Authenticated):**
+- **📊 Complete Experience**: All LinkedIn features available
+- **👤 Personalized**: User-specific content and suggestions
+- **�� Interactive**: All hover effects and transitions
+- **📱 Responsive**: Three-column to single-column on mobile
+
+### **🔄 User Experience Flow:**
+
+1. **❌ Not Logged In**: 
+   - See simplified home page with just posts
+   - Can view posts but can't create them
+   - No personal sections or recommendations
+
+2. **✅ Logged In**: 
+   - See full LinkedIn-style layout
+   - Can create and interact with posts
+   - Access to profile, stats, premium features
+   - Personalized recommendations and news
+
+### **�� Responsive Design:**
+- **🖥️ Desktop**: Full three-column layout for authenticated users
+- **📱 Tablet**: Two-column layout (sidebar + main)
+- **📱 Mobile**: Single column with reordered sections
+- **📱 Simple Layout**: Always centered and optimized
+
+Now the home page provides a clean, focused experience for visitors while giving authenticated users the full LinkedIn-style social networking experience! 🚀
+
+---
+

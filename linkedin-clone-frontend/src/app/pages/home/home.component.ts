@@ -13,6 +13,7 @@ import { PostComponent } from '../post/post.component';
 })
 export class HomeComponent implements OnInit {
   currentUser: any;
+  isLoggedIn: boolean = false;
   private platformId = inject(PLATFORM_ID);
 
   constructor(private authService: AuthService) {}
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
 
   loadUserData(): void {
     this.currentUser = this.authService.getUser();
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   getInitials(name: string): string {
