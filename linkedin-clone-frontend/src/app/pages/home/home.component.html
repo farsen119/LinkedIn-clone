@@ -1,1 +1,147 @@
-<app-post></app-post>
+<div class="home-container">
+  <!-- Left Sidebar -->
+  <div class="left-sidebar">
+    <div class="sidebar-section">
+      <div class="profile-card" [routerLink]="['/profile']" style="cursor: pointer;">
+        <div class="profile-banner"></div>
+        <div class="profile-info">
+          <div class="profile-avatar">
+            <img *ngIf="currentUser?.profile_photo" [src]="currentUser.profile_photo" alt="Profile Photo">
+            <div *ngIf="!currentUser?.profile_photo" class="avatar-placeholder">
+              {{ getInitials(currentUser?.first_name + ' ' + currentUser?.last_name) }}
+            </div>
+          </div>
+          <h3 class="profile-name">{{ currentUser?.first_name }} {{ currentUser?.last_name }}</h3>
+          <p class="profile-headline">{{ currentUser?.bio || 'Add a headline' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-label">Profile views</span>
+          <span class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Post impressions</span>
+          <span class="stat-value">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="premium-card">
+        <h4>Try Premium for free</h4>
+        <p>See who's viewed your profile in the last 90 days</p>
+        <button class="premium-btn">
+          <i class="fas fa-crown"></i>
+          Try for free
+        </button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="my-items-card">
+        <h4>My items</h4>
+        <div class="item" [routerLink]="['/profile']" style="cursor: pointer;">
+          <i class="fas fa-bookmark"></i>
+          <span>My posts</span>
+        </div>
+        <div class="item">
+          <i class="fas fa-file-alt"></i>
+          <span>My articles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Feed -->
+  <div class="main-feed">
+    <app-post></app-post>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div class="right-sidebar">
+    <div class="sidebar-section">
+      <div class="news-card">
+        <h4>LinkedIn News</h4>
+        <div class="news-item">
+          <span class="news-number">1</span>
+          <div class="news-content">
+            <p class="news-title">Top news of the day</p>
+            <p class="news-time">1d ago • 1,234 readers</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-number">2</span>
+          <div class="news-content">
+            <p class="news-title">Tech industry updates</p>
+            <p class="news-time">2d ago • 567 readers</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="news-number">3</span>
+          <div class="news-content">
+            <p class="news-title">Career development tips</p>
+            <p class="news-time">3d ago • 890 readers</p>
+          </div>
+        </div>
+        <button class="show-more-btn">Show more</button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="people-card">
+        <h4>People you may know</h4>
+        <div class="person-item">
+          <div class="person-avatar">
+            <div class="avatar-placeholder">JD</div>
+          </div>
+          <div class="person-info">
+            <h5>John Doe</h5>
+            <p>Software Engineer at Tech Corp</p>
+            <button class="connect-btn">Connect</button>
+          </div>
+        </div>
+        <div class="person-item">
+          <div class="person-avatar">
+            <div class="avatar-placeholder">JS</div>
+          </div>
+          <div class="person-info">
+            <h5>Jane Smith</h5>
+            <p>Product Manager at Startup Inc</p>
+            <button class="connect-btn">Connect</button>
+          </div>
+        </div>
+        <button class="show-more-btn">Show more</button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="learning-card">
+        <h4>Learning</h4>
+        <p>Add new skills with these courses</p>
+        <div class="course-item">
+          <div class="course-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="course-info">
+            <h5>JavaScript Essential Training</h5>
+            <p>Course • 6h 30m</p>
+          </div>
+        </div>
+        <div class="course-item">
+          <div class="course-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="course-info">
+            <h5>SQL for Data Science</h5>
+            <p>Course • 4h 15m</p>
+          </div>
+        </div>
+        <button class="show-more-btn">Show more</button>
+      </div>
+    </div>
+  </div>
+</div>

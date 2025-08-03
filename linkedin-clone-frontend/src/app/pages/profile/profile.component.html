@@ -1,248 +1,296 @@
 <div class="profile-container">
-  <!-- Cover Photo Section -->
-  <div class="cover-photo-section">
-    <div class="cover-photo">
-      <div class="cover-photo-placeholder">
-        <i class="fas fa-image"></i>
-        <span>Add a cover photo</span>
-      </div>
-    </div>
+  <!-- Success and Error Messages -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
   </div>
 
-  <!-- Profile Header Section -->
+  <!-- Profile Header -->
   <div class="profile-header">
-    <div class="profile-content">
-      <!-- Profile Photo -->
+    <div class="cover-photo">
+      <div class="cover-placeholder"></div>
+    </div>
+    
+    <div class="profile-info">
       <div class="profile-photo-section">
-        <div class="profile-photo-container">
-          <img 
-            *ngIf="user?.profile_photo" 
-            [src]="user.profile_photo" 
-            alt="Profile" 
-            class="profile-photo"
-          >
-          <div *ngIf="!user?.profile_photo" class="profile-photo-placeholder">
-            {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+        <div class="profile-photo">
+          <img *ngIf="user?.profile_photo" [src]="user.profile_photo" alt="Profile Photo">
+          <div *ngIf="!user?.profile_photo" class="photo-placeholder">
+            {{ getInitials(user?.first_name + ' ' + user?.last_name) }}
           </div>
-          <button class="edit-photo-btn" *ngIf="isEditing">
-            <i class="fas fa-camera"></i>
-          </button>
         </div>
       </div>
-
-      <!-- Profile Info -->
-      <div class="profile-info">
-        <div class="profile-name-section">
-          <h1 class="profile-name">{{ user?.first_name }} {{ user?.last_name }}</h1>
-          <p class="profile-headline" *ngIf="user?.bio; else noHeadline">{{ user.bio }}</p>
-          <ng-template #noHeadline>
-            <p class="profile-headline placeholder">Add a headline to tell people more about what you do</p>
-          </ng-template>
-          <p class="profile-location">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Add location</span>
-          </p>
-        </div>
-
-        <!-- Profile Actions -->
+      
+      <div class="profile-details">
+        <h1 class="profile-name">{{ user?.first_name }} {{ user?.last_name }}</h1>
+        <p class="profile-headline">{{ user?.bio || 'No headline added yet' }}</p>
+        <p class="profile-email">{{ user?.email }}</p>
+        
         <div class="profile-actions">
-          <button 
-            *ngIf="!isEditing" 
-            (click)="toggleEdit()" 
-            class="edit-profile-btn"
-          >
-            <i class="fas fa-pencil-alt"></i>
-            Edit profile
+          <button class="edit-profile-btn" (click)="toggleEdit()">
+            <i class="fas fa-edit"></i>
+            Edit Profile
           </button>
-          <div *ngIf="isEditing" class="edit-actions">
-            <button (click)="saveProfile()" class="save-btn" [disabled]="isLoading">
-              <span *ngIf="!isLoading">Save</span>
-              <span *ngIf="isLoading">Saving...</span>
-            </button>
-            <button (click)="toggleEdit()" class="cancel-btn" [disabled]="isLoading">Cancel</button>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Profile Content -->
-  <div class="profile-content-wrapper">
-    <div class="profile-main-content">
-      <!-- About Section -->
-      <div class="profile-section">
-        <div class="section-header">
-          <h2>About</h2>
-          <button *ngIf="!isEditing" (click)="toggleEdit()" class="section-edit-btn">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-        </div>
-        <div class="section-content">
-          <p *ngIf="user?.bio; else noAboutText">{{ user.bio }}</p>
-          <ng-template #noAboutText>
-            <p class="placeholder-text">Tell people about yourself</p>
-          </ng-template>
-        </div>
-      </div>
-
-      
-    </div>
-
-    <!-- Profile Sidebar -->
+  <!-- Main Content -->
+  <div class="profile-content">
+    <!-- Left Sidebar -->
     <div class="profile-sidebar">
-      <!-- Contact Info -->
       <div class="sidebar-section">
-        <h3>Contact info</h3>
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <span>{{ user?.email }}</span>
-        </div>
-        <div class="contact-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Add location</span>
-        </div>
-      </div>
-
-      <!-- Profile Views -->
-      <div class="sidebar-section">
-        <h3>Profile views</h3>
-        <p class="profile-views-count">0 profile views</p>
-        <p class="profile-views-text">See who's viewed your profile</p>
-      </div>
-
-      <!-- Profile Completion -->
-      <div class="sidebar-section">
-        <h3>Profile completion</h3>
+        <h3>Profile Completion</h3>
         <div class="completion-bar">
           <div class="completion-fill" [style.width.%]="getProfileCompletion()"></div>
         </div>
-        <p class="completion-text">{{ getProfileCompletion() }}% complete</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Edit Form Modal -->
-  <div *ngIf="isEditing" class="edit-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Edit profile</h2>
-        <button (click)="toggleEdit()" class="modal-close-btn">
-          <i class="fas fa-times"></i>
-        </button>
+        <p class="completion-text">{{ getProfileCompletion() }}% Complete</p>
       </div>
       
-      <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
-        <!-- Profile Photo Upload -->
-        <div class="form-group">
-          <label>Profile Photo</label>
-          <div class="photo-upload-section">
-            <div class="current-photo">
-              <img 
-                *ngIf="user?.profile_photo" 
-                [src]="user.profile_photo" 
-                alt="Current Profile" 
-                class="current-photo-img"
-              >
-              <div *ngIf="!user?.profile_photo" class="current-photo-placeholder">
-                {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+      <div class="sidebar-section">
+        <h3>About</h3>
+        <p class="about-text">{{ user?.bio || 'No bio added yet. Click "Edit Profile" to add one.' }}</p>
+      </div>
+    </div>
+
+    <!-- Main Feed -->
+    <div class="profile-main">
+      <!-- User Posts Section -->
+      <div class="posts-section">
+        <h2>Posts</h2>
+        
+        <!-- Loading State -->
+        <div *ngIf="isLoadingPosts" class="loading-state">
+          <div class="loading-spinner"></div>
+          <p>Loading posts...</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="postsError" class="error-state">
+          <p>{{ postsError }}</p>
+        </div>
+
+        <!-- No Posts State -->
+        <div *ngIf="!isLoadingPosts && !postsError && userPosts.length === 0" class="no-posts">
+          <i class="fas fa-newspaper"></i>
+          <h3>No posts yet</h3>
+          <p>You haven't shared anything yet. Start posting to see your content here!</p>
+        </div>
+
+        <!-- Posts List -->
+        <div *ngFor="let post of userPosts" class="post-card">
+          <div class="post-header">
+            <div class="post-author">
+              <div class="author-avatar">
+                <img *ngIf="post.author_photo" [src]="post.author_photo" alt="Author Photo" class="avatar-img">
+                <div *ngIf="!post.author_photo" class="avatar-placeholder">
+                  {{ getInitials(post.author_name) }}
+                </div>
+              </div>
+              <div class="author-info">
+                <h4 class="author-name">{{ post.author_name }}</h4>
+                <p class="post-time">{{ post.created_at_formatted }}</p>
               </div>
             </div>
-            
-            <div class="photo-upload-controls">
-              <input 
-                type="file" 
-                (change)="onFileSelected($event)"
-                accept="image/*"
-                class="file-input"
-                id="profile-photo-input"
-              >
-              <label for="profile-photo-input" class="upload-btn">
-                Change Photo
-              </label>
-              
-              <div *ngIf="previewUrl" class="photo-preview">
-                <img [src]="previewUrl" alt="Preview" class="preview-img">
-                <button type="button" (click)="removePhoto()" class="remove-btn">Remove</button>
+            <div class="post-menu">
+              <button class="menu-btn" (click)="deletePost(post)" title="Delete post">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="post-content">
+            <p class="post-text">{{ post.content }}</p>
+            <img *ngIf="post.image_url" [src]="post.image_url" alt="Post Image" class="post-image">
+          </div>
+
+          <!-- Post Stats -->
+          <div class="post-stats" *ngIf="post.likes_count > 0 || post.comments_count > 0">
+            <div class="stats-item" *ngIf="post.likes_count > 0">
+              <i class="fas fa-thumbs-up"></i>
+              <span>{{ post.likes_count }} {{ post.likes_count === 1 ? 'like' : 'likes' }}</span>
+            </div>
+            <div class="stats-item" *ngIf="post.comments_count > 0">
+              <i class="fas fa-comment"></i>
+              <span>{{ post.comments_count }} {{ post.comments_count === 1 ? 'comment' : 'comments' }}</span>
+            </div>
+          </div>
+
+          <!-- Post Actions -->
+          <div class="post-actions">
+            <button 
+              class="action-btn" 
+              [class.liked]="post.is_liked"
+              (click)="likePost(post)"
+            >
+              <i [class]="post.is_liked ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'"></i>
+              <span>{{ post.is_liked ? 'Liked' : 'Like' }}</span>
+            </button>
+            <button 
+              class="action-btn"
+              (click)="toggleCommentForm(post.id)"
+            >
+              <i class="far fa-comment"></i>
+              <span>Comment</span>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-share"></i>
+              <span>Share</span>
+            </button>
+          </div>
+
+          <!-- Comment Form -->
+          <div *ngIf="showCommentForm[post.id]" class="comment-form">
+            <div class="comment-input-container">
+              <div class="user-avatar small">
+                <img *ngIf="user?.profile_photo" [src]="user.profile_photo" alt="Profile Photo" class="avatar-img">
+                <div *ngIf="!user?.profile_photo" class="avatar-placeholder">
+                  {{ getInitials(user?.first_name + ' ' + user?.last_name) }}
+                </div>
+              </div>
+              <div class="comment-input-wrapper">
+                <textarea 
+                  [(ngModel)]="commentContent[post.id]" 
+                  placeholder="Write a comment..."
+                  class="comment-input"
+                  maxlength="500"
+                  rows="2"
+                ></textarea>
+                <div class="comment-actions">
+                  <button 
+                    (click)="addComment(post)" 
+                    [disabled]="!commentContent[post.id].trim()"
+                    class="comment-btn"
+                  >
+                    Comment
+                  </button>
+                  <button 
+                    (click)="toggleCommentForm(post.id)" 
+                    class="cancel-btn"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comments Section -->
+          <div *ngIf="post.comments && post.comments.length > 0" class="comments-section">
+            <div *ngFor="let comment of post.comments" class="comment-item">
+              <div class="comment-author">
+                <div class="author-avatar small">
+                  <img *ngIf="comment.author_photo" [src]="comment.author_photo" alt="Author Photo" class="avatar-img">
+                  <div *ngIf="!comment.author_photo" class="avatar-placeholder">
+                    {{ getInitials(comment.author_name) }}
+                  </div>
+                </div>
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="comment-author-name">{{ comment.author_name }}</span>
+                    <span class="comment-time">{{ comment.created_at_formatted }}</span>
+                  </div>
+                  <p class="comment-text">{{ comment.content }}</p>
+                </div>
+                <div class="comment-actions" *ngIf="isCurrentUserComment(comment)">
+                  <button 
+                    (click)="deleteComment(post, comment)" 
+                    class="delete-comment-btn"
+                    title="Delete comment"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!-- Form Fields -->
+<!-- Edit Profile Modal -->
+<div *ngIf="isEditing" class="modal-overlay" (click)="toggleEdit()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Edit Profile</h2>
+      <button class="close-btn" (click)="toggleEdit()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="modal-body">
+      <form (ngSubmit)="saveProfile()">
         <div class="form-group">
           <label for="first_name">First Name</label>
           <input 
             type="text" 
-            id="first_name"
-            name="first_name"
+            id="first_name" 
             [(ngModel)]="editData.first_name" 
+            name="first_name"
             required
-            placeholder="Enter your first name"
           >
         </div>
-
+        
         <div class="form-group">
           <label for="last_name">Last Name</label>
           <input 
             type="text" 
-            id="last_name"
-            name="last_name"
+            id="last_name" 
             [(ngModel)]="editData.last_name" 
+            name="last_name"
             required
-            placeholder="Enter your last name"
           >
         </div>
-
+        
         <div class="form-group">
           <label for="email">Email</label>
           <input 
             type="email" 
-            id="email"
-            name="email"
+            id="email" 
             [(ngModel)]="editData.email" 
+            name="email"
             required
-            placeholder="Enter your email"
           >
         </div>
-
+        
         <div class="form-group">
-          <label for="bio">Headline</label>
+          <label for="bio">Bio/Headline</label>
           <textarea 
-            id="bio"
-            name="bio"
+            id="bio" 
             [(ngModel)]="editData.bio" 
-            rows="3"
-            placeholder="Add a headline to tell people more about what you do..."
-            maxlength="200"
+            name="bio"
+            rows="4"
+            maxlength="500"
+            placeholder="Tell us about yourself..."
           ></textarea>
-          <small class="char-count">{{ editData.bio.length }}/200 characters</small>
+          <small class="char-count">{{ editData.bio?.length || 0 }}/500</small>
         </div>
-
-        <!-- Error and Success Messages -->
-        <div *ngIf="errorMessage" class="error-message">
-          {{ errorMessage }}
+        
+        <div class="form-group">
+          <label for="profile_photo">Profile Photo</label>
+          <input 
+            type="file" 
+            id="profile_photo" 
+            (change)="onFileSelected($event)"
+            accept="image/*"
+          >
+          <div *ngIf="photoPreviewUrl" class="photo-preview">
+            <img [src]="photoPreviewUrl" alt="Preview">
+            <button type="button" class="remove-photo-btn" (click)="removePhoto()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
         </div>
-
-        <div *ngIf="successMessage" class="success-message">
-          {{ successMessage }}
-        </div>
-
-        <!-- Action Buttons -->
+        
         <div class="form-actions">
-          <button 
-            type="button" 
-            (click)="toggleEdit()" 
-            class="cancel-btn"
-            [disabled]="isLoading"
-          >
-            Cancel
-          </button>
-          <button 
-            type="submit" 
-            class="save-btn"
-            [disabled]="!profileForm.form.valid || isLoading"
-          >
-            <span *ngIf="!isLoading">Save</span>
+          <button type="button" class="cancel-btn" (click)="toggleEdit()">Cancel</button>
+          <button type="submit" class="save-btn" [disabled]="isLoading">
+            <span *ngIf="!isLoading">Save Changes</span>
             <span *ngIf="isLoading">Saving...</span>
           </button>
         </div>

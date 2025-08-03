@@ -54,6 +54,10 @@ export class PostService {
     return this.http.get<Post[]>(`${this.apiUrl}/posts/`);
   }
 
+  getUserPosts(userId: number): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}/`);
+  }
+
   createPost(data: CreatePostData): Observable<Post> {
     const formData = new FormData();
     formData.append('content', data.content);
@@ -63,6 +67,12 @@ export class PostService {
     }
 
     return this.http.post<Post>(`${this.apiUrl}/posts/create/`, formData, {
+      headers: this.authService.getAuthHeaders()
+    });
+  }
+
+  deletePost(postId: number): Observable<{message: string}> {
+    return this.http.delete<{message: string}>(`${this.apiUrl}/posts/${postId}/delete/`, {
       headers: this.authService.getAuthHeaders()
     });
   }

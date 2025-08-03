@@ -12,6 +12,17 @@ def get_posts(request):
     serializer = PostSerializer(posts, many=True, context={'request': request})
     return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def get_user_posts(request, user_id):
+    """Get posts by a specific user"""
+    try:
+        posts = Post.objects.filter(author_id=user_id)
+        serializer = PostSerializer(posts, many=True, context={'request': request})
+        return Response(serializer.data)
+    except Exception as e:
+        return Response({'error': 'An error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 @api_view(['POST'])
 @permission_classes([permissions.IsAuthenticated])
 def create_post(request):
@@ -21,6 +32,25 @@ def create_post(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+@permission_classes([permissions.IsAuthenticated])
+def delete_post(request, post_id):
+    """Delete a post (only by the post author)"""
+    try:
+        post = Post.objects.get(id=post_id)
+        
+        # Check if user is the post author
+        if post.author != request.user:
+            return Response({'error': 'You can only delete your own posts'}, status=status.HTTP_403_FORBIDDEN)
+        
+        post.delete()
+        return Response({'message': 'Post deleted successfully'}, status=status.HTTP_200_OK)
+        
+    except Post.DoesNotExist:
+        return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response({'error': 'An error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['POST'])
 @permission_classes([permissions.IsAuthenticated])
