@@ -465,25 +465,8 @@
   color: #191919;
 }
 
-/* Responsive Design for Simplified Layout */
-@media (max-width: 768px) {
-  .home-container-simple {
-    padding: 16px;
-  }
-  
-  .main-feed-simple {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-container-simple {
-    padding: 12px;
-  }
-}
-
-/* Responsive Design for Full Layout */
-@media (max-width: 1200px) {
+/* Enhanced Responsive Design */
+@media (max-width: 1400px) {
   .home-container {
     grid-template-columns: 280px 1fr 280px;
     gap: 20px;
@@ -491,11 +474,19 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .home-container {
+    grid-template-columns: 260px 1fr 260px;
+    gap: 18px;
+    padding: 18px;
+  }
+}
+
 @media (max-width: 1024px) {
   .home-container {
-    grid-template-columns: 260px 1fr;
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: 240px 1fr;
+    gap: 16px;
+    padding: 16px;
   }
   
   .right-sidebar {
@@ -506,8 +497,8 @@
 @media (max-width: 768px) {
   .home-container {
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 16px;
+    gap: 12px;
+    padding: 12px;
   }
   
   .left-sidebar {
@@ -517,10 +508,6 @@
   
   .main-feed {
     order: 1;
-  }
-  
-  .right-sidebar {
-    display: none;
   }
   
   .sidebar-section {
@@ -573,8 +560,12 @@
 
 @media (max-width: 480px) {
   .home-container {
-    padding: 12px;
-    gap: 12px;
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .home-container-simple {
+    padding: 16px 8px;
   }
   
   .sidebar-section {
@@ -645,5 +636,67 @@
   
   .show-more-btn {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-container {
+    padding: 6px;
+  }
+  
+  .home-container-simple {
+    padding: 12px 6px;
+  }
+  
+  .sidebar-section {
+    padding: 10px;
+  }
+  
+  .profile-avatar {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .avatar-placeholder {
+    font-size: 20px;
+  }
+  
+  .profile-name {
+    font-size: 13px;
+  }
+  
+  .profile-headline {
+    font-size: 11px;
+  }
+  
+  .premium-card,
+  .my-items-card,
+  .news-card,
+  .people-card,
+  .learning-card {
+    padding: 10px;
+  }
+  
+  .premium-card h4,
+  .my-items-card h4,
+  .news-card h4,
+  .people-card h4,
+  .learning-card h4 {
+    font-size: 14px;
+  }
+  
+  .item span,
+  .news-title,
+  .person-info h5,
+  .course-info h5 {
+    font-size: 12px;
+  }
+  
+  .stat-label,
+  .stat-value,
+  .news-time,
+  .person-info p,
+  .course-info p {
+    font-size: 10px;
   }
 } 

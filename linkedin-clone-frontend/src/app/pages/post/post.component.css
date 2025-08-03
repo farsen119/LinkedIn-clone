@@ -554,10 +554,10 @@
   background: rgba(220, 53, 69, 0.1);
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
 @media (max-width: 768px) {
   .post-container {
-    padding: 10px;
+    padding: 15px;
   }
   
   .create-post-card,
@@ -565,12 +565,27 @@
     padding: 15px;
   }
   
+  .post-header {
+    gap: 10px;
+  }
+  
+  .avatar-img,
+  .avatar-placeholder {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+  
+  .post-input {
+    font-size: 15px;
+  }
+  
   .post-actions {
-    gap: 5px;
+    gap: 8px;
   }
   
   .action-btn {
-    padding: 6px 8px;
+    padding: 6px 10px;
     font-size: 13px;
   }
   
@@ -592,9 +607,31 @@
     width: 100%;
     text-align: center;
   }
+  
+  .user-avatar.small .avatar-img,
+  .author-avatar.small .avatar-img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .user-avatar.small .avatar-placeholder,
+  .author-avatar.small .avatar-placeholder {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
+  .post-container {
+    padding: 10px;
+  }
+  
+  .create-post-card,
+  .post-card {
+    padding: 12px;
+  }
+  
   .post-header {
     gap: 8px;
   }
@@ -604,19 +641,6 @@
     width: 40px;
     height: 40px;
     font-size: 16px;
-  }
-  
-  .user-avatar.small .avatar-img,
-  .author-avatar.small .avatar-img {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .user-avatar.small .avatar-placeholder,
-  .author-avatar.small .avatar-placeholder {
-    width: 28px;
-    height: 28px;
-    font-size: 12px;
   }
   
   .post-input {
@@ -633,5 +657,127 @@
   
   .comment-text {
     font-size: 13px;
+  }
+  
+  .user-avatar.small .avatar-img,
+  .author-avatar.small .avatar-img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .user-avatar.small .avatar-placeholder,
+  .author-avatar.small .avatar-placeholder {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .post-actions {
+    gap: 5px;
+  }
+  
+  .action-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+  
+  .action-btn i {
+    font-size: 16px;
+  }
+  
+  .image-upload-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .post-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+  
+  .comment-btn,
+  .cancel-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .post-container {
+    padding: 8px;
+  }
+  
+  .create-post-card,
+  .post-card {
+    padding: 10px;
+  }
+  
+  .post-header {
+    gap: 6px;
+  }
+  
+  .avatar-img,
+  .avatar-placeholder {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .post-input {
+    font-size: 14px;
+  }
+  
+  .post-text {
+    font-size: 14px;
+  }
+  
+  .comment-input {
+    font-size: 12px;
+  }
+  
+  .comment-text {
+    font-size: 12px;
+  }
+  
+  .user-avatar.small .avatar-img,
+  .author-avatar.small .avatar-img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .user-avatar.small .avatar-placeholder,
+  .author-avatar.small .avatar-placeholder {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+  
+  .post-actions {
+    gap: 3px;
+  }
+  
+  .action-btn {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+  
+  .action-btn i {
+    font-size: 15px;
+  }
+  
+  .image-upload-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+  
+  .post-btn {
+    padding: 5px 14px;
+    font-size: 12px;
+  }
+  
+  .comment-btn,
+  .cancel-btn {
+    padding: 4px 10px;
+    font-size: 11px;
   }
 }

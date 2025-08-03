@@ -303,7 +303,17 @@
   position: relative;
 }
 
-/* Responsive design for navbar */
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 1rem;
@@ -319,5 +329,240 @@
   
   .nav-menu {
     gap: 1rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  .signup-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .logout-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .user-avatar,
+  .user-avatar-placeholder {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .user-avatar-placeholder {
+    font-size: 0.7rem;
+  }
+  
+  .profile-popup {
+    width: 280px;
+    right: -10px;
+  }
+  
+  .popup-header {
+    padding: 1.2rem;
+  }
+  
+  .popup-avatar,
+  .popup-avatar-placeholder {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .popup-avatar-placeholder {
+    font-size: 1.2rem;
+  }
+  
+  .popup-name {
+    font-size: 1rem;
+  }
+  
+  .popup-email {
+    font-size: 0.8rem;
+  }
+  
+  .popup-bio {
+    padding: 1.2rem;
+  }
+  
+  .popup-actions {
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.8rem;
+    height: 56px;
+  }
+  
+  .nav-logo i {
+    font-size: 1.6rem;
+  }
+  
+  .nav-menu {
+    gap: 0.8rem;
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  
+  .signup-btn {
+    padding: 0.35rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .logout-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  
+  .user-avatar,
+  .user-avatar-placeholder {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .user-avatar-placeholder {
+    font-size: 0.65rem;
+  }
+  
+  .profile-popup {
+    width: 260px;
+    right: -15px;
+  }
+  
+  .popup-header {
+    padding: 1rem;
+  }
+  
+  .popup-avatar,
+  .popup-avatar-placeholder {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .popup-avatar-placeholder {
+    font-size: 1.1rem;
+  }
+  
+  .popup-name {
+    font-size: 0.95rem;
+  }
+  
+  .popup-email {
+    font-size: 0.75rem;
+  }
+  
+  .popup-bio {
+    padding: 1rem;
+  }
+  
+  .popup-bio h4 {
+    font-size: 0.9rem;
+  }
+  
+  .popup-bio p {
+    font-size: 0.8rem;
+  }
+  
+  .popup-actions {
+    padding: 0.7rem 1rem;
+  }
+  
+  .popup-profile-btn,
+  .popup-close-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-container {
+    padding: 0 0.6rem;
+    height: 52px;
+  }
+  
+  .nav-logo i {
+    font-size: 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 0.6rem;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem;
+  }
+  
+  .signup-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .logout-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .user-avatar,
+  .user-avatar-placeholder {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .user-avatar-placeholder {
+    font-size: 0.6rem;
+  }
+  
+  .profile-popup {
+    width: 240px;
+    right: -20px;
+  }
+  
+  .popup-header {
+    padding: 0.8rem;
+  }
+  
+  .popup-avatar,
+  .popup-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .popup-avatar-placeholder {
+    font-size: 1rem;
+  }
+  
+  .popup-name {
+    font-size: 0.9rem;
+  }
+  
+  .popup-email {
+    font-size: 0.7rem;
+  }
+  
+  .popup-bio {
+    padding: 0.8rem;
+  }
+  
+  .popup-bio h4 {
+    font-size: 0.85rem;
+  }
+  
+  .popup-bio p {
+    font-size: 0.75rem;
+  }
+  
+  .popup-actions {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .popup-profile-btn,
+  .popup-close-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
   }
 }
