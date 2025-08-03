@@ -1,1 +1,252 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <!-- Cover Photo Section -->
+  <div class="cover-photo-section">
+    <div class="cover-photo">
+      <div class="cover-photo-placeholder">
+        <i class="fas fa-image"></i>
+        <span>Add a cover photo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Header Section -->
+  <div class="profile-header">
+    <div class="profile-content">
+      <!-- Profile Photo -->
+      <div class="profile-photo-section">
+        <div class="profile-photo-container">
+          <img 
+            *ngIf="user?.profile_photo" 
+            [src]="user.profile_photo" 
+            alt="Profile" 
+            class="profile-photo"
+          >
+          <div *ngIf="!user?.profile_photo" class="profile-photo-placeholder">
+            {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+          </div>
+          <button class="edit-photo-btn" *ngIf="isEditing">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Profile Info -->
+      <div class="profile-info">
+        <div class="profile-name-section">
+          <h1 class="profile-name">{{ user?.first_name }} {{ user?.last_name }}</h1>
+          <p class="profile-headline" *ngIf="user?.bio; else noHeadline">{{ user.bio }}</p>
+          <ng-template #noHeadline>
+            <p class="profile-headline placeholder">Add a headline to tell people more about what you do</p>
+          </ng-template>
+          <p class="profile-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Add location</span>
+          </p>
+        </div>
+
+        <!-- Profile Actions -->
+        <div class="profile-actions">
+          <button 
+            *ngIf="!isEditing" 
+            (click)="toggleEdit()" 
+            class="edit-profile-btn"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            Edit profile
+          </button>
+          <div *ngIf="isEditing" class="edit-actions">
+            <button (click)="saveProfile()" class="save-btn" [disabled]="isLoading">
+              <span *ngIf="!isLoading">Save</span>
+              <span *ngIf="isLoading">Saving...</span>
+            </button>
+            <button (click)="toggleEdit()" class="cancel-btn" [disabled]="isLoading">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Content -->
+  <div class="profile-content-wrapper">
+    <div class="profile-main-content">
+      <!-- About Section -->
+      <div class="profile-section">
+        <div class="section-header">
+          <h2>About</h2>
+          <button *ngIf="!isEditing" (click)="toggleEdit()" class="section-edit-btn">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+        </div>
+        <div class="section-content">
+          <p *ngIf="user?.bio; else noAboutText">{{ user.bio }}</p>
+          <ng-template #noAboutText>
+            <p class="placeholder-text">Tell people about yourself</p>
+          </ng-template>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <!-- Profile Sidebar -->
+    <div class="profile-sidebar">
+      <!-- Contact Info -->
+      <div class="sidebar-section">
+        <h3>Contact info</h3>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>{{ user?.email }}</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Add location</span>
+        </div>
+      </div>
+
+      <!-- Profile Views -->
+      <div class="sidebar-section">
+        <h3>Profile views</h3>
+        <p class="profile-views-count">0 profile views</p>
+        <p class="profile-views-text">See who's viewed your profile</p>
+      </div>
+
+      <!-- Profile Completion -->
+      <div class="sidebar-section">
+        <h3>Profile completion</h3>
+        <div class="completion-bar">
+          <div class="completion-fill" [style.width.%]="getProfileCompletion()"></div>
+        </div>
+        <p class="completion-text">{{ getProfileCompletion() }}% complete</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Form Modal -->
+  <div *ngIf="isEditing" class="edit-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit profile</h2>
+        <button (click)="toggleEdit()" class="modal-close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
+        <!-- Profile Photo Upload -->
+        <div class="form-group">
+          <label>Profile Photo</label>
+          <div class="photo-upload-section">
+            <div class="current-photo">
+              <img 
+                *ngIf="user?.profile_photo" 
+                [src]="user.profile_photo" 
+                alt="Current Profile" 
+                class="current-photo-img"
+              >
+              <div *ngIf="!user?.profile_photo" class="current-photo-placeholder">
+                {{ user?.first_name?.charAt(0) }}{{ user?.last_name?.charAt(0) }}
+              </div>
+            </div>
+            
+            <div class="photo-upload-controls">
+              <input 
+                type="file" 
+                (change)="onFileSelected($event)"
+                accept="image/*"
+                class="file-input"
+                id="profile-photo-input"
+              >
+              <label for="profile-photo-input" class="upload-btn">
+                Change Photo
+              </label>
+              
+              <div *ngIf="previewUrl" class="photo-preview">
+                <img [src]="previewUrl" alt="Preview" class="preview-img">
+                <button type="button" (click)="removePhoto()" class="remove-btn">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Fields -->
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input 
+            type="text" 
+            id="first_name"
+            name="first_name"
+            [(ngModel)]="editData.first_name" 
+            required
+            placeholder="Enter your first name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input 
+            type="text" 
+            id="last_name"
+            name="last_name"
+            [(ngModel)]="editData.last_name" 
+            required
+            placeholder="Enter your last name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email"
+            name="email"
+            [(ngModel)]="editData.email" 
+            required
+            placeholder="Enter your email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="bio">Headline</label>
+          <textarea 
+            id="bio"
+            name="bio"
+            [(ngModel)]="editData.bio" 
+            rows="3"
+            placeholder="Add a headline to tell people more about what you do..."
+            maxlength="200"
+          ></textarea>
+          <small class="char-count">{{ editData.bio.length }}/200 characters</small>
+        </div>
+
+        <!-- Error and Success Messages -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
+        <div *ngIf="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions">
+          <button 
+            type="button" 
+            (click)="toggleEdit()" 
+            class="cancel-btn"
+            [disabled]="isLoading"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            class="save-btn"
+            [disabled]="!profileForm.form.valid || isLoading"
+          >
+            <span *ngIf="!isLoading">Save</span>
+            <span *ngIf="isLoading">Saving...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

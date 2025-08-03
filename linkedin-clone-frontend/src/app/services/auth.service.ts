@@ -37,6 +37,27 @@ export interface RefreshResponse {
   refresh_token: string;
 }
 
+export interface ProfileUpdateData {
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  bio?: string;
+  profile_photo?: File;
+}
+
+export interface ProfileUpdateResponse {
+  message: string;
+  user: {
+    id: number;
+    username: string;
+    email: string;
+    first_name: string;
+    last_name: string;
+    profile_photo?: string;
+    bio?: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -157,5 +178,24 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!this.getAccessToken();
+  }
+
+  updateProfile(data: ProfileUpdateData): Observable<ProfileUpdateResponse> {
+    const formData = new FormData();
+    
+    if (data.first_name) formData.append('first_name', data.first_name);
+    if (data.last_name) formData.append('last_name', data.last_name);
+    if (data.email) formData.append('email', data.email);
+    if (data.bio) formData.append('bio', data.bio);
+    if (data.profile_photo) formData.append('profile_photo', data.profile_photo);
+
+    return this.http.put<ProfileUpdateResponse>(`${this.apiUrl}/profile/update/`, formData, {
+      headers: this.getAuthHeaders()
+    }).pipe(
+      tap(response => {
+        // Update local user data with the response
+        this.setUser(response.user);
+      })
+    );
   }
 } 

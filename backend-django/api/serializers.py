@@ -79,4 +79,30 @@ class LoginSerializer(serializers.Serializer):
             attrs['user'] = authenticated_user
             return attrs
         else:
-            raise serializers.ValidationError('Must include email and password.') 
+            raise serializers.ValidationError('Must include email and password.')
+
+class ProfileUpdateSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(source='user.first_name', required=False)
+    last_name = serializers.CharField(source='user.last_name', required=False)
+    email = serializers.EmailField(source='user.email', required=False)
+    profile_photo = serializers.ImageField(required=False)
+
+    class Meta:
+        model = Profile
+        fields = ['bio', 'profile_photo', 'first_name', 'last_name', 'email']
+
+    def update(self, instance, validated_data):
+        # Update user fields
+        user_data = validated_data.pop('user', {})
+        if user_data:
+            user = instance.user
+            for attr, value in user_data.items():
+                setattr(user, attr, value)
+            user.save()
+
+        # Update profile fields
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        return instance 

@@ -204,11 +204,32 @@
 .popup-actions {
   padding: 1rem 1.5rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-profile-btn {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.popup-profile-btn:hover {
+  background-color: #005885;
+  text-decoration: none;
+  color: white;
 }
 
 .popup-close-btn {
-  background-color: #0077b5;
+  background-color: #6c757d;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -220,7 +241,7 @@
 }
 
 .popup-close-btn:hover {
-  background-color: #005885;
+  background-color: #5a6268;
 }
 
 /* Make avatars clickable */
