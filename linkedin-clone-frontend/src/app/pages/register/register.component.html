@@ -1,0 +1,73 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Create Account</h2>
+    <p class="subtitle">Join LinkedIn Clone to connect with professionals</p>
+    
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input 
+          type="text" 
+          id="first_name"
+          name="first_name"
+          [(ngModel)]="registerData.first_name" 
+          required
+          placeholder="Enter your first name"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input 
+          type="text" 
+          id="last_name"
+          name="last_name"
+          [(ngModel)]="registerData.last_name" 
+          required
+          placeholder="Enter your last name"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email"
+          name="email"
+          [(ngModel)]="registerData.email" 
+          required
+          placeholder="Enter your email"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password"
+          name="password"
+          [(ngModel)]="registerData.password" 
+          required
+          placeholder="Enter your password"
+        >
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="!registerForm.form.valid || isLoading"
+        class="register-btn"
+      >
+        <span *ngIf="!isLoading">Sign Up</span>
+        <span *ngIf="isLoading">Creating Account...</span>
+      </button>
+    </form>
+
+    <div class="login-link">
+      Already have an account? <a routerLink="/login">Sign In</a>
+    </div>
+  </div>
+</div>
