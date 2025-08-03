@@ -1,0 +1,208 @@
+<div class="post-container">
+  <!-- Create Post Section -->
+  <div class="create-post-section" *ngIf="currentUser">
+    <div class="create-post-card">
+      <div class="post-header">
+        <div class="user-avatar">
+          <img *ngIf="currentUser.profile_photo" [src]="currentUser.profile_photo" alt="Profile Photo" class="avatar-img">
+          <div *ngIf="!currentUser.profile_photo" class="avatar-placeholder">
+            {{ getInitials(currentUser.first_name + ' ' + currentUser.last_name) }}
+          </div>
+        </div>
+        <div class="post-input-container">
+          <textarea 
+            [(ngModel)]="newPostContent" 
+            placeholder="What do you want to talk about?"
+            class="post-input"
+            maxlength="1000"
+            rows="3"
+          ></textarea>
+          <div class="post-actions">
+            <div class="post-options">
+              <label for="imageUpload" class="image-upload-btn">
+                <i class="fas fa-image"></i>
+                <span>Add photo</span>
+              </label>
+              <input 
+                type="file" 
+                id="imageUpload" 
+                (change)="onFileSelected($event)" 
+                accept="image/*" 
+                style="display: none;"
+              >
+            </div>
+            <button 
+              (click)="createPost()" 
+              [disabled]="!newPostContent.trim() || isCreatingPost"
+              class="post-btn"
+            >
+              <span *ngIf="!isCreatingPost">Post</span>
+              <span *ngIf="isCreatingPost">Posting...</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Preview -->
+      <div *ngIf="imagePreviewUrl" class="image-preview">
+        <img [src]="imagePreviewUrl" alt="Preview" class="preview-img">
+        <button (click)="removeImage()" class="remove-image-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Error and Success Messages -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Posts Feed -->
+  <div class="posts-feed">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Loading posts...</p>
+    </div>
+
+    <!-- No Posts State -->
+    <div *ngIf="!isLoading && posts.length === 0" class="no-posts">
+      <i class="fas fa-newspaper"></i>
+      <h3>No posts yet</h3>
+      <p>Be the first to share something!</p>
+    </div>
+
+    <!-- Posts List -->
+    <div *ngFor="let post of posts" class="post-card">
+      <div class="post-header">
+        <div class="post-author">
+          <div class="author-avatar">
+            <img *ngIf="post.author_photo" [src]="post.author_photo" alt="Author Photo" class="avatar-img">
+            <div *ngIf="!post.author_photo" class="avatar-placeholder">
+              {{ getInitials(post.author_name) }}
+            </div>
+          </div>
+          <div class="author-info">
+            <h4 class="author-name">{{ post.author_name }}</h4>
+            <p class="post-time">{{ post.created_at_formatted }}</p>
+          </div>
+        </div>
+        <div class="post-menu" *ngIf="isCurrentUserPost(post)">
+          <button class="menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p class="post-text">{{ post.content }}</p>
+        <img *ngIf="post.image_url" [src]="post.image_url" alt="Post Image" class="post-image">
+      </div>
+
+      <!-- Post Stats -->
+      <div class="post-stats" *ngIf="post.likes_count > 0 || post.comments_count > 0">
+        <div class="stats-item" *ngIf="post.likes_count > 0">
+          <i class="fas fa-thumbs-up"></i>
+          <span>{{ post.likes_count }} {{ post.likes_count === 1 ? 'like' : 'likes' }}</span>
+        </div>
+        <div class="stats-item" *ngIf="post.comments_count > 0">
+          <i class="fas fa-comment"></i>
+          <span>{{ post.comments_count }} {{ post.comments_count === 1 ? 'comment' : 'comments' }}</span>
+        </div>
+      </div>
+
+      <!-- Post Actions -->
+      <div class="post-actions">
+        <button 
+          class="action-btn" 
+          [class.liked]="post.is_liked"
+          (click)="likePost(post)"
+        >
+          <i [class]="post.is_liked ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'"></i>
+          <span>{{ post.is_liked ? 'Liked' : 'Like' }}</span>
+        </button>
+        <button 
+          class="action-btn"
+          (click)="toggleCommentForm(post.id)"
+        >
+          <i class="far fa-comment"></i>
+          <span>Comment</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-share"></i>
+          <span>Share</span>
+        </button>
+      </div>
+
+      <!-- Comment Form -->
+      <div *ngIf="showCommentForm[post.id]" class="comment-form">
+        <div class="comment-input-container">
+          <div class="user-avatar small">
+            <img *ngIf="currentUser?.profile_photo" [src]="currentUser.profile_photo" alt="Profile Photo" class="avatar-img">
+            <div *ngIf="!currentUser?.profile_photo" class="avatar-placeholder">
+              {{ getInitials(currentUser?.first_name + ' ' + currentUser?.last_name) }}
+            </div>
+          </div>
+          <div class="comment-input-wrapper">
+            <textarea 
+              [(ngModel)]="commentContent[post.id]" 
+              placeholder="Write a comment..."
+              class="comment-input"
+              maxlength="500"
+              rows="2"
+            ></textarea>
+            <div class="comment-actions">
+                             <button 
+                 (click)="addComment(post)" 
+                 [disabled]="!commentContent[post.id].trim()"
+                 class="comment-btn"
+               >
+                Comment
+              </button>
+              <button 
+                (click)="toggleCommentForm(post.id)" 
+                class="cancel-btn"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div *ngIf="post.comments && post.comments.length > 0" class="comments-section">
+        <div *ngFor="let comment of post.comments" class="comment-item">
+          <div class="comment-author">
+            <div class="author-avatar small">
+              <img *ngIf="comment.author_photo" [src]="comment.author_photo" alt="Author Photo" class="avatar-img">
+              <div *ngIf="!comment.author_photo" class="avatar-placeholder">
+                {{ getInitials(comment.author_name) }}
+              </div>
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-author-name">{{ comment.author_name }}</span>
+                <span class="comment-time">{{ comment.created_at_formatted }}</span>
+              </div>
+              <p class="comment-text">{{ comment.content }}</p>
+            </div>
+            <div class="comment-actions" *ngIf="isCurrentUserComment(comment)">
+              <button 
+                (click)="deleteComment(post, comment)" 
+                class="delete-comment-btn"
+                title="Delete comment"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
