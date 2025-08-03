@@ -3,11 +3,22 @@
     <div class="nav-logo">
       <a routerLink="/">LinkedIn Clone</a>
     </div>
-    
+
     <div class="nav-menu">
       <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="/profile" class="nav-link">Profile</a>
-      <button routerLink="/register" class="signup-btn">Sign Up</button>
+      
+      <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
+        <a routerLink="/login" class="nav-link">Sign In</a>
+        <button routerLink="/register" class="signup-btn">Sign Up</button>
+      </ng-container>
+
+      <ng-template #loggedInMenu>
+        <a routerLink="/profile" class="nav-link">Profile</a>
+        <div class="user-menu">
+          <span class="user-name">{{ user?.first_name }} {{ user?.last_name }}</span>
+          <button (click)="logout()" class="logout-btn">Logout</button>
+        </div>
+      </ng-template>
     </div>
   </div>
 </nav>

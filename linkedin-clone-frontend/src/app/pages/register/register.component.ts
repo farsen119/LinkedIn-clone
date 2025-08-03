@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -22,36 +21,44 @@ export class RegisterComponent {
 
   isLoading = false;
   errorMessage = '';
+  successMessage = '';
+  showSuccessPopup = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   register() {
     this.isLoading = true;
     this.errorMessage = '';
+    this.successMessage = '';
+    this.showSuccessPopup = false;
 
-    this.http.post(`${environment.apiUrl}/auth/register/`, this.registerData)
-      .subscribe({
-        next: (response: any) => {
-          console.log('Registration successful:', response);
-          this.isLoading = false;
-          
-          // Store token and user data
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('user', JSON.stringify(response.user));
-          
-          // Redirect to home page
-          this.router.navigate(['/']);
-        },
-        error: (error) => {
-          console.error('Registration failed:', error);
-          this.isLoading = false;
-          
-          if (error.error) {
-            this.errorMessage = Object.values(error.error).join(', ');
-          } else {
-            this.errorMessage = 'Registration failed. Please try again.';
-          }
+    this.authService.register(this.registerData).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        
+        // Show success popup
+        this.successMessage = `Welcome ${response.user.first_name} ${response.user.last_name}! Your account has been created successfully. You can now sign in with your credentials.`;
+        this.showSuccessPopup = true;
+        
+        // Redirect to login page after 3 seconds
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 3000);
+      },
+      error: (error) => {
+        this.isLoading = false;
+        
+        if (error.error) {
+          this.errorMessage = Object.values(error.error).join(', ');
+        } else {
+          this.errorMessage = 'Registration failed. Please try again.';
         }
-      });
+      }
+    });
+  }
+
+  closeSuccessPopup() {
+    this.showSuccessPopup = false;
+    this.router.navigate(['/login']);
   }
 }

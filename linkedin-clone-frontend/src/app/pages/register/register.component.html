@@ -71,3 +71,15 @@
     </div>
   </div>
 </div>
+
+<!-- Success Popup -->
+<div *ngIf="showSuccessPopup" class="success-popup-overlay">
+  <div class="success-popup">
+    <div class="success-icon">✅</div>
+    <h3>Registration Successful!</h3>
+    <p>{{ successMessage }}</p>
+    <div class="popup-buttons">
+      <button (click)="closeSuccessPopup()" class="popup-btn primary">Sign In Now</button>
+    </div>
+  </div>
+</div>

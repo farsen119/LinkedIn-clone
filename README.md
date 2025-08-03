@@ -1,11 +1,14 @@
-# LinkedIn Clone - Register Functionality
+# LinkedIn Clone - JWT Authentication
 
-A mini LinkedIn-like community platform with user registration functionality.
+A mini LinkedIn-like community platform with JWT authentication and user management.
 
 ## Features Implemented
 
 - ✅ User Registration (First Name, Last Name, Email, Password)
 - ✅ User Login (Email, Password)
+- ✅ JWT Authentication with Access & Refresh Tokens
+- ✅ Automatic Token Refresh
+- ✅ Secure Token Storage
 - ✅ Clean LinkedIn-style UI
 - ✅ Frontend-Backend Connection
 
@@ -59,7 +62,16 @@ A mini LinkedIn-like community platform with user registration functionality.
 
 - `POST /api/auth/register/` - User registration
 - `POST /api/auth/login/` - User login
-- `POST /api/auth/logout/` - User logout
+- `POST /api/auth/refresh/` - Refresh JWT token
+
+## JWT Authentication
+
+The application uses JWT (JSON Web Tokens) for secure authentication:
+
+- **Access Token**: Short-lived token (60 minutes) for API requests
+- **Refresh Token**: Long-lived token (7 days) for getting new access tokens
+- **Automatic Refresh**: The frontend automatically refreshes tokens when they expire
+- **Secure Storage**: Tokens are stored in localStorage with proper security measures
 
 ## Register Form Fields
 
@@ -70,10 +82,16 @@ A mini LinkedIn-like community platform with user registration functionality.
 
 The system automatically generates a username from the email address.
 
+## Login Form Fields
+
+- Email (required)
+- Password (required)
+
 ## Usage
 
 1. Open http://localhost:4200 in your browser
-2. Click "Sign Up" button in the navbar
-3. Fill in the registration form
-4. Submit to create your account
-5. You'll be automatically logged in after successful registration 
+2. Click "Sign Up" button in the navbar to register
+3. Or click "Sign In" to login with existing credentials
+4. Fill in the respective forms
+5. You'll be automatically logged in after successful authentication
+6. The navbar will show your name and a logout button when logged in 
