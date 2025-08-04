@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8000/api'
+  apiUrl: 'https://linkedin-clone-backend-ipo2.onrender.com/api'
 }; 
