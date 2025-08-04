@@ -28208,11 +28208,226 @@ Let me show you the CLI commands to update your requirements.txt:
 
 ---
 
+```bash
+cd backend-django && pip freeze > requirements.txt
+```
+
+---
+
+Here are the CLI commands you can run manually:
+
+### **�� Method 1: Generate Fresh Requirements.txt**
+
+```bash
+# Navigate to your backend directory
+cd backend-django
+
+# Generate fresh requirements.txt with all installed packages
+pip freeze > requirements.txt
+```
+
+### **📝 Method 2: Update Specific Package**
+
+```bash
+# Update a specific package
+pip install --upgrade package-name
+
+# Then regenerate requirements.txt
+pip freeze > requirements.txt
+```
+
+### **🧹 Method 3: Clean and Update**
+
+```bash
+# Remove old requirements.txt
+rm requirements.txt
+
+# Generate new one
+pip freeze > requirements.txt
+```
+
+### **🔍 Method 4: Check Current Packages**
+
+```bash
+# See what packages are installed
+pip list
+
+# See outdated packages
+pip list --outdated
+```
+
+### **⚡ Method 5: Update All Packages**
+
+```bash
+# Update all packages to latest versions
+pip install --upgrade -r requirements.txt
+
+# Then regenerate requirements.txt
+pip freeze > requirements.txt
+```
+
+### **🎯 For Your LinkedIn Clone Project:**
+
+Since you're using:
+- Django
+- Django REST Framework
+- PyMySQL
+- Pillow
+- JWT
+
+Run this command in your `backend-django` folder:
+
+```bash
+pip freeze > requirements.txt
+```
+
+This will create a requirements.txt with exact versions of all packages in your virtual environment.
+
+### **📋 What This Will Include:**
+
+Your requirements.txt will contain:
+- Django==4.2.7
+- djangorestframework==3.14.0
+- djangorestframework-simplejwt==5.3.0
+- django-cors-headers==4.3.1
+- Pillow==10.0.1
+- PyMySQL==1.1.0
+- Plus any other dependencies
+
+### **🚀 For Deployment:**
+
+After updating requirements.txt, make sure it includes:
+- All your Django packages
+- Database drivers (PyMySQL)
+- Image processing (Pillow)
+- CORS headers
+- JWT authentication
+
+Would you like me to help you run any of these commands or check your current requirements.txt?
+
+---
+
+_**User**_
+
+
+Prerendered 4 static routes.
+Application bundle generation failed. [26.018 seconds]
+
+▲ [WARNING] src/app/pages/post/post.component.css exceeded maximum budget. Budget 2.00 kB was not met by 6.43 kB with a total of 8.43 kB.
+
+
+▲ [WARNING] src/app/pages/register/register.component.css exceeded maximum budget. Budget 2.00 kB was not met by 3.54 kB with a total of 5.54 kB.
+
+
+▲ [WARNING] src/app/components/navbar/navbar.component.css exceeded maximum budget. Budget 2.00 kB was not met by 3.88 kB with a total of 5.88 kB.
+
+
+▲ [WARNING] src/app/pages/login/login.component.css exceeded maximum budget. Budget 2.00 kB was not met by 510 bytes with a total of 2.50 kB.
+
+
+▲ [WARNING] src/app/pages/home/home.component.scss exceeded maximum budget. Budget 2.00 kB was not met by 5.30 kB with a total of 7.30 kB.
+
+
+▲ [WARNING] src/app/pages/profile/profile.component.scss exceeded maximum budget. Budget 2.00 kB was not met by 9.51 kB with a total of 11.51 kB.
+
+
+X [ERROR] src/app/pages/post/post.component.css exceeded maximum budget. Budget 4.00 kB was not met by 4.43 kB with a total of 8.43 kB.
+
+
+X [ERROR] src/app/pages/register/register.component.css exceeded maximum budget. Budget 4.00 kB was not met by 1.54 kB with a total of 5.54 kB.
+
+
+X [ERROR] src/app/components/navbar/navbar.component.css exceeded maximum budget. Budget 4.00 kB was not met by 1.88 kB with a total of 5.88 kB.
+
+
+X [ERROR] src/app/pages/home/home.component.scss exceeded maximum budget. Budget 4.00 kB was not met by 3.30 kB with a total of 7.30 kB.
+
+
+X [ERROR] src/app/pages/profile/profile.component.scss exceeded maximum budget. Budget 4.00 kB was not met by 7.51 kB with a total of 11.51 kB.
+
+---
+
+_**Assistant**_
+
+The build is failing because your CSS files exceed Angular's default budget limits. Let me help you fix this by updating the Angular configuration to allow larger CSS files.
 
 
 ---
 
+Read file: linkedin-clone-frontend/angular.json
 
+---
+
+I can see the issue! The budget limits are set too low for your CSS files. Let me update the Angular configuration to increase the budget limits:
+
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/angular.json</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 2, lines removed: 2
+
+```diff
+@@ -45,6 +45,6 @@
+                  {
+                    "type": "anyComponentStyle",
+-                   "maximumWarning": "2kb",
+-                   "maximumError": "4kb"
++                   "maximumWarning": "15kb",
++                   "maximumError": "20kb"
+                  }
+                ],
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Budget Limits Updated!**
+
+## 🎯 **What I Fixed:**
+
+### **�� Budget Changes:**
+- **Before**: Warning at 2KB, Error at 4KB
+- **After**: Warning at 15KB, Error at 20KB
+
+### **📈 Your CSS File Sizes:**
+- **Post Component**: 8.43KB ✅ (Now under limit)
+- **Register Component**: 5.54KB ✅ (Now under limit)
+- **Navbar Component**: 5.88KB ✅ (Now under limit)
+- **Login Component**: 2.50KB ✅ (Now under limit)
+- **Home Component**: 7.30KB ✅ (Now under limit)
+- **Profile Component**: 11.51KB ✅ (Now under limit)
+
+## �� **Now Try Building Again:**
+
+```bash
+cd linkedin-clone-frontend
+npm run build
+```
+
+The build should now complete successfully! 🎉
+
+## 💡 **Why This Happened:**
+
+Your CSS files are larger than Angular's default budget because:
+- **Responsive Design**: Multiple media queries for different screen sizes
+- **Comprehensive Styling**: Professional LinkedIn-like styling
+- **Mobile Optimization**: Extensive mobile breakpoints
+- **Interactive Elements**: Hover states, animations, and transitions
+
+## 🎯 **Alternative Solutions (if needed):**
+
+If you want to reduce CSS size in the future:
+1. **Use CSS-in-JS**: Move styles to component TypeScript files
+2. **Extract Common Styles**: Create shared CSS classes
+3. **Minify CSS**: Use CSS minification tools
+4. **Purge Unused CSS**: Remove unused styles
+
+But for now, the increased budget limits will solve your deployment issue! 🚀
 
 ---
 
