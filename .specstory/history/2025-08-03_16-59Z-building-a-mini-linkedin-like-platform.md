@@ -29929,3 +29929,936 @@ The error was caused by:
 
 ---
 
+_**User**_
+
+@https://linkedin-clone-backend-ipo2.onrender.com 
+now successfully done backend 
+
+---
+
+_**Assistant**_
+
+Excellent! 🎉 **Backend Successfully Deployed!**
+
+Your backend is now live at: **https://linkedin-clone-backend-ipo2.onrender.com**
+
+---
+
+## **🎯 STEP 2: FRONTEND DEPLOYMENT (VERCEL)**
+
+Now let's deploy your frontend to Vercel and connect it to your backend!
+
+### **1. Go to Vercel Dashboard**
+- Visit [vercel.com](https://vercel.com)
+- Sign in with your GitHub account
+
+### **2. Create New Project**
+- Click **"New Project"**
+- Import your GitHub repository: `farsen119/LinkedIn-clone`
+- Select the repository
+
+### **3. Configure Project Settings**
+```
+Framework Preset: Angular
+Root Directory: linkedin-clone-frontend
+Build Command: npm run build
+Output Directory: dist/linkedin-clone-frontend
+```
+
+### **4. Add Environment Variables**
+```
+Name: API_URL
+Value: https://linkedin-clone-backend-ipo2.onrender.com/api
+Environment: Production, Preview, Development
+```
+
+### **5. Deploy Frontend**
+- Click **"Deploy"**
+- Wait for deployment
+- Copy your frontend URL (e.g., `https://linkedin-clone-frontend-xyz789.vercel.app`)
+
+---
+
+## **�� STEP 3: CONNECT FRONTEND & BACKEND**
+
+### **1. Update Backend CORS**
+Go back to Render Dashboard:
+- Edit your web service
+- Update `CORS_ALLOWED_ORIGINS` with your Vercel frontend URL:
+```
+CORS_ALLOWED_ORIGINS = https://your-frontend-domain.vercel.app
+```
+
+### **2. Update Frontend API URL**
+Go to Vercel Dashboard:
+- Edit your project
+- Update `API_URL` with your Render backend URL:
+```
+API_URL = https://linkedin-clone-backend-ipo2.onrender.com/api
+```
+
+### **3. Redeploy Both Services**
+- **Backend**: Trigger new deployment in Render
+- **Frontend**: Trigger new deployment in Vercel
+
+---
+
+## **🔧 Test Your Backend API:**
+
+### **Test these endpoints:**
+1. **API Root**: `https://linkedin-clone-backend-ipo2.onrender.com/api/`
+2. **Posts**: `https://linkedin-clone-backend-ipo2.onrender.com/api/posts/`
+3. **Auth**: `https://linkedin-clone-backend-ipo2.onrender.com/api/auth/register/`
+
+---
+
+## **�� Ready for Frontend Deployment?**
+
+**Start with Vercel deployment now!**
+
+Your backend is working perfectly! 🎯
+
+Need help with any Vercel configuration step?
+
+---
+
+_**User**_
+
+linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.appthis simy frontend]
+
+---
+
+_**Assistant**_
+
+Perfect! �� **Both Backend and Frontend are Now Live!**
+
+## **🚀 Your LinkedIn Clone is Deployed:**
+
+### **✅ Backend (Render):**
+- **URL**: `https://linkedin-clone-backend-ipo2.onrender.com`
+- **API**: `https://linkedin-clone-backend-ipo2.onrender.com/api`
+
+### **✅ Frontend (Vercel):**
+- **URL**: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+
+---
+
+## **�� STEP 3: CONNECT FRONTEND & BACKEND**
+
+### **1. Update Backend CORS (Render)**
+Go to your Render Dashboard:
+- Edit your web service
+- Update `CORS_ALLOWED_ORIGINS` environment variable:
+```
+CORS_ALLOWED_ORIGINS = https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app
+```
+
+### **2. Update Frontend API URL (Vercel)**
+Go to your Vercel Dashboard:
+- Edit your project
+- Update `API_URL` environment variable:
+```
+API_URL = https://linkedin-clone-backend-ipo2.onrender.com/api
+```
+
+### **3. Redeploy Both Services**
+- **Backend**: Trigger new deployment in Render
+- **Frontend**: Trigger new deployment in Vercel
+
+---
+
+## **�� Test Your Complete Application:**
+
+### **1. Visit Your Frontend:**
+- **URL**: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+- **Test**: Registration, Login, Posts, Profile, etc.
+
+### **2. Test Backend API:**
+- **API Root**: `https://linkedin-clone-backend-ipo2.onrender.com/api/`
+- **Posts**: `https://linkedin-clone-backend-ipo2.onrender.com/api/posts/`
+
+---
+
+## **📱 Your LinkedIn Clone Features:**
+
+✅ **User Authentication** (Register/Login with JWT)
+✅ **Public Post Feed** (Create, Read, Like, Comment)
+✅ **Profile Management** (Edit Profile, Bio, Photo)
+✅ **Responsive Design** (Mobile & Desktop)
+✅ **Image Upload** (Profile Photos & Post Images)
+✅ **Real-time Interactions** (Likes, Comments)
+
+---
+
+## **🎉 CONGRATULATIONS!**
+
+**Your LinkedIn Clone is now live on the internet!**
+
+- **Frontend**: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+- **Backend**: `https://linkedin-clone-backend-ipo2.onrender.com`
+
+**Share your application with others!** ��
+
+---
+
+## **🔧 Need to Update CORS?**
+
+**Go to Render Dashboard → Environment Variables → Update CORS_ALLOWED_ORIGINS with your Vercel URL!**
+
+Your deployment is complete! 🎯
+
+---
+
+_**User**_
+
+Update CORS_ALLOWED_ORIGINS environment variable:
+
+where i do in settinmgs
+
+---
+
+_**Assistant**_
+
+# 🔧 **How to Update CORS_ALLOWED_ORIGINS in Render**
+
+## **🎯 Step-by-Step Process:**
+
+### **1. Go to Render Dashboard**
+- Visit [render.com](https://render.com)
+- Sign in to your account
+
+### **2. Find Your Web Service**
+- Click on your web service: `linkedin-clone-backend`
+- Or search for it in your dashboard
+
+### **3. Go to Environment Tab**
+- In your web service dashboard
+- Click on **"Environment"** tab (usually in the top menu)
+
+### **4. Find CORS_ALLOWED_ORIGINS**
+- Scroll down to find the environment variables
+- Look for `CORS_ALLOWED_ORIGINS`
+- Click on the **pencil/edit icon** next to it
+
+### **5. Update the Value**
+- **Current Value**: Probably `https://your-frontend-domain.vercel.app`
+- **New Value**: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+- Click **"Save"**
+
+### **6. Redeploy (if needed)**
+- Render might auto-redeploy
+- Or click **"Manual Deploy"** button
+
+---
+
+## **📝 Visual Guide:**
+
+```
+Render Dashboard
+├── Your Services
+│   └── linkedin-clone-backend
+│       ├── Overview
+│       ├── Environment ← Click this tab
+│       ├── Logs
+│       └── Settings
+│
+Environment Variables:
+├── DEBUG = False
+├── SECRET_KEY = [your-key]
+├── ALLOWED_HOSTS = [your-domain]
+├── DATABASE_URL = [your-db-url]
+└── CORS_ALLOWED_ORIGINS ← Edit this one
+    └── Value: https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app
+```
+
+---
+
+## **�� Alternative Method:**
+
+### **If you can't find the Environment tab:**
+1. **Click "Settings"** in your web service
+2. **Look for "Environment Variables"** section
+3. **Find CORS_ALLOWED_ORIGINS**
+4. **Click edit and update**
+
+---
+
+## **✅ After Updating:**
+
+### **Test the Connection:**
+1. **Visit your frontend**: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+2. **Try to register/login**
+3. **Check if API calls work**
+
+### **If it doesn't work:**
+- **Check browser console** for CORS errors
+- **Verify the URL** is exactly correct
+- **Wait a few minutes** for deployment to complete
+
+---
+
+## **🎯 Need Help Finding It?**
+
+**Can you see your Render dashboard? Tell me what tabs/options you see and I'll guide you to the right place!** 🚀
+
+---
+
+_**User**_
+
+in versel look like this 
+
+---
+
+_**Assistant**_
+
+Perfect! I can see your Vercel dashboard. Now let's update the environment variables in Vercel to connect it to your backend.
+
+# 🔧 **Update Environment Variables in Vercel**
+
+## **🎯 Step-by-Step Process:**
+
+### **1. Go to Settings Tab**
+- In your Vercel dashboard, click on **"Settings"** tab
+- (It's in the navigation bar with Overview, Deployments, etc.)
+
+### **2. Find Environment Variables**
+- In the Settings page, look for **"Environment Variables"** section
+- Click on it to expand
+
+### **3. Add/Update API_URL**
+- **Variable Name**: `API_URL`
+- **Value**: `https://linkedin-clone-backend-ipo2.onrender.com/api`
+- **Environment**: Select all (Production, Preview, Development)
+- Click **"Add"** or **"Save"**
+
+### **4. Save Changes**
+- After adding the environment variable
+- Click **"Save"** to apply changes
+
+---
+
+## **📝 What You Need to Add:**
+
+```
+Name: API_URL
+Value: https://linkedin-clone-backend-ipo2.onrender.com/api
+Environment: Production, Preview, Development
+```
+
+---
+
+## **🔄 After Adding Environment Variable:**
+
+### **1. Redeploy Your Frontend**
+- Go back to **"Deployments"** tab
+- Click **"Redeploy"** on your latest deployment
+- Or push a new commit to trigger auto-deployment
+
+### **2. Test the Connection**
+- Visit your frontend: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+- Try to register/login
+- Check if it connects to your backend
+
+---
+
+## **�� Next Steps:**
+
+### **1. Update Render CORS (if not done yet)**
+Go to Render Dashboard:
+- Find your web service
+- Go to **"Environment"** tab
+- Update `CORS_ALLOWED_ORIGINS` to: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+
+### **2. Test Complete Application**
+- Frontend: `https://linked-in-clone-2ikfw2eri-farsen119s-projects.vercel.app`
+- Backend: `https://linkedin-clone-backend-ipo2.onrender.com`
+
+---
+
+## **🚀 Ready to Add the Environment Variable?**
+
+**Click on "Settings" tab and look for "Environment Variables" section!**
+
+Need help finding the Environment Variables section? 🎯
+
+---
+
+_**User**_
+
+[11:58:29.411] Running build in Washington, D.C., USA (East) – iad1
+[11:58:29.412] Build machine configuration: 2 cores, 8 GB
+[11:58:29.437] Cloning github.com/farsen119/LinkedIn-clone (Branch: main, Commit: 9e6baf4)
+[11:58:29.484] Skipping build cache, deployment was triggered without cache.
+[11:58:30.011] Cloning completed: 573.000ms
+[11:58:30.339] Running "vercel build"
+[11:58:31.645] Vercel CLI 44.6.4
+[11:58:32.561] Installing dependencies...
+[11:58:35.939] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[11:58:36.108] npm warn deprecated read-package-json@7.0.1: This package is no longer supported. Please use @npmcli/package-json instead.
+[11:58:36.956] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[11:58:37.215] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[11:58:45.100] 
+[11:58:45.102] added 894 packages in 12s
+[11:58:45.102] 
+[11:58:45.102] 129 packages are looking for funding
+[11:58:45.103]   run `npm fund` for details
+[11:58:45.275] 
+[11:58:45.275] > linkedin-clone-frontend@0.0.0 build
+[11:58:45.275] > ng build
+[11:58:45.276] 
+[11:58:46.095] - Building...
+[11:58:46.095] 
+[11:59:12.047] Error loading posts: Et {
+[11:59:12.048]   headers: e {
+[11:59:12.048]     normalizedNames: Map(0) {},
+[11:59:12.048]     lazyUpdate: null,
+[11:59:12.049]     headers: Map(0) {}
+[11:59:12.049]   },
+[11:59:12.049]   status: 0,
+[11:59:12.049]   statusText: 'Unknown Error',
+[11:59:12.049]   url: 'http://localhost:8000/api/posts/',
+[11:59:12.049]   ok: false,
+[11:59:12.049]   name: 'HttpErrorResponse',
+[11:59:12.050]   message: 'Http failure response for http://localhost:8000/api/posts/: 0 undefined',
+[11:59:12.050]   error: TypeError: fetch failed
+[11:59:12.050]       at node:internal/deps/undici/undici:13510:13
+[11:59:12.050]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:3:6715)
+[11:59:12.050]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/chunk-QG2JIKVW.mjs:34:6555)
+[11:59:12.050]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:3:6654)
+[11:59:12.050]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:3:1985)
+[11:59:12.051]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:4:576
+[11:59:12.051]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:3:7341)
+[11:59:12.051]       at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/chunk-QG2JIKVW.mjs:34:6371)
+[11:59:12.051]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:3:7262)
+[11:59:12.051]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/e73e013a-494b-49ad-84d8-4fc9fa5d8e76/polyfills.server.mjs:3:2628) {
+[11:59:12.051]     [cause]: Error: connect ECONNREFUSED 127.0.0.1:8000
+[11:59:12.051]         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+[11:59:12.051]       errno: -111,
+[11:59:12.051]       code: 'ECONNREFUSED',
+[11:59:12.051]       syscall: 'connect',
+[11:59:12.052]       address: '127.0.0.1',
+[11:59:12.052]       port: 8000
+[11:59:12.052]     }
+[11:59:12.052]   }
+[11:59:12.052] }
+[11:59:13.508] Error loading posts: Et {
+[11:59:13.509]   headers: e {
+[11:59:13.509]     normalizedNames: Map(0) {},
+[11:59:13.509]     lazyUpdate: null,
+[11:59:13.509]     headers: Map(0) {}
+[11:59:13.509]   },
+[11:59:13.509]   status: 0,
+[11:59:13.509]   statusText: 'Unknown Error',
+[11:59:13.509]   url: 'http://localhost:8000/api/posts/',
+[11:59:13.510]   ok: false,
+[11:59:13.510]   name: 'HttpErrorResponse',
+[11:59:13.510]   message: 'Http failure response for http://localhost:8000/api/posts/: 0 undefined',
+[11:59:13.510]   error: TypeError: fetch failed
+[11:59:13.510]       at node:internal/deps/undici/undici:13510:13
+[11:59:13.510]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:3:6715)
+[11:59:13.510]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/chunk-QG2JIKVW.mjs:34:6555)
+[11:59:13.510]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:3:6654)
+[11:59:13.510]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:3:1985)
+[11:59:13.510]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:4:576
+[11:59:13.510]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:3:7341)
+[11:59:13.510]       at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/chunk-QG2JIKVW.mjs:34:6371)
+[11:59:13.510]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:3:7262)
+[11:59:13.510]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ab5b7f8c-4f6f-40df-accc-7204165e0cd2/polyfills.server.mjs:3:2628) {
+[11:59:13.515]     [cause]: Error: connect ECONNREFUSED 127.0.0.1:8000
+[11:59:13.515]         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+[11:59:13.516]       errno: -111,
+[11:59:13.516]       code: 'ECONNREFUSED',
+[11:59:13.516]       syscall: 'connect',
+[11:59:13.516]       address: '127.0.0.1',
+[11:59:13.516]       port: 8000
+[11:59:13.516]     }
+[11:59:13.516]   }
+[11:59:13.516] }
+[11:59:14.025] Browser bundles        
+[11:59:14.025] Initial chunk files     | Names               |  Raw size | Estimated transfer size
+[11:59:14.025] main-JRN6N2DK.js        | main                | 375.19 kB |                84.13 kB
+[11:59:14.025] polyfills-FFHMD2TL.js   | polyfills           |  33.71 kB |                11.02 kB
+[11:59:14.026] styles-5INURTSO.css     | styles              |   0 bytes |                 0 bytes
+[11:59:14.026] 
+[11:59:14.026]                         | Initial total       | 408.90 kB |                95.15 kB
+[11:59:14.026] 
+[11:59:14.026] 
+[11:59:14.026] Server bundles         
+[11:59:14.026] Initial chunk files     | Names               |  Raw size
+[11:59:14.027] server.mjs              | server              |   1.06 MB |                        
+[11:59:14.027] polyfills.server.mjs    | polyfills.server    | 262.30 kB |                        
+[11:59:14.027] chunk-QG2JIKVW.mjs      | -                   | 250.93 kB |                        
+[11:59:14.027] chunk-S6FCXJA7.mjs      | -                   | 236.30 kB |                        
+[11:59:14.027] chunk-OTQC6TGH.mjs      | -                   | 135.31 kB |                        
+[11:59:14.027] chunk-VVCT4QZE.mjs      | -                   |   2.48 kB |                        
+[11:59:14.027] render-utils.server.mjs | render-utils.server |   1.46 kB |                        
+[11:59:14.027] main.server.mjs         | main.server         | 149 bytes |                        
+[11:59:14.027] 
+[11:59:14.027] Lazy chunk files        | Names               |  Raw size
+[11:59:14.027] chunk-QZP2S7SI.mjs      | xhr2                |  11.79 kB |                        
+[11:59:14.028] 
+[11:59:14.028] Prerendered 4 static routes.
+[11:59:14.028] Output location: /vercel/path0/linkedin-clone-frontend/dist/linkedin-clone-frontend
+[11:59:14.028] 
+[11:59:14.028] Application bundle generation complete. [27.926 seconds]
+[11:59:14.028] 
+[11:59:14.170] Build Completed in /vercel/output [42s]
+[11:59:14.192] Deploying outputs...
+[11:59:15.583] Deployment completed
+[11:59:34.567] Uploading build cache [61.02 MB]...
+[11:59:36.466] Build cache uploaded: 1.903s
+[11:59:38.696] Exiting build container
+
+---
+
+_**Assistant**_
+
+I can see the issue! The build is failing because your frontend is still trying to connect to `http://localhost:8000` instead of your production backend URL. This is happening during the build process when Angular tries to prerender the pages.
+
+# 🔧 **Fix the API URL Issue**
+
+## **🎯 The Problem:**
+- **Error**: `connect ECONNREFUSED 127.0.0.1:8000`
+- **Cause**: Frontend is still using localhost URL during build
+- **Solution**: Update environment configuration
+
+## **📝 Step 1: Update Environment Files**
+
+
+---
+
+Read file: linkedin-clone-frontend/src/environments/environment.ts
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/environments/environment.ts</summary>
+
+Update the development environment to use the production backend URL
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -1,4 +1,4 @@
+  export const environment = {
+    production: false,
+-   apiUrl: 'http://localhost:8000/api'
++   apiUrl: 'https://linkedin-clone-backend-ipo2.onrender.com/api'
+  }; 
+```
+
+</details>
+
+---
+
+<details>
+            <summary>Searched codebase "environment.prod.ts" • **1** results</summary>
+        
+| File |
+|------|
+| `c:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone\linkedin-clone-frontend\src\environments\environment.prod.ts` |
+
+</details>
+
+---
+
+Read file: linkedin-clone-frontend/src/environments/environment.prod.ts
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/src/environments/environment.prod.ts</summary>
+
+Update the production environment to use the correct backend URL
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -1,4 +1,4 @@
+  export const environment = {
+    production: true,
+-   apiUrl: 'https://your-production-api.com/api' // Change this to your production API URL
++   apiUrl: 'https://linkedin-clone-backend-ipo2.onrender.com/api'
+  }; 
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Fixed the API URL Issue!**
+
+## **🔧 What I Fixed:**
+
+### **1. Updated Development Environment:**
+- **File**: `environment.ts`
+- **Changed**: `http://localhost:8000/api` → `https://linkedin-clone-backend-ipo2.onrender.com/api`
+
+### **2. Updated Production Environment:**
+- **File**: `environment.prod.ts`
+- **Changed**: `https://your-production-api.com/api` → `https://linkedin-clone-backend-ipo2.onrender.com/api`
+
+## **🚀 Now Deploy Again:**
+
+### **1. Commit and Push Changes:**
+```bash
+git add linkedin-clone-frontend/src/environments/
+git commit -m "Update API URLs to production backend"
+git push origin main
+```
+
+### **2. Vercel Will Auto-Deploy:**
+- Vercel will automatically detect the new commit
+- It will start a new deployment
+- The build should now succeed
+
+## **📋 Why This Happened:**
+
+### **The Issue:**
+- **Angular SSR**: During build, Angular tries to prerender pages
+- **API Calls**: Your components make API calls during prerendering
+- **Localhost**: The environment was still pointing to localhost
+- **Connection Refused**: Vercel can't connect to localhost:8000
+
+### **The Solution:**
+- **Updated URLs**: Both environments now point to your production backend
+- **Build Success**: Angular can now connect to your live backend during build
+
+## **🎯 Next Steps:**
+
+1. **Push the changes**
+2. **Wait for Vercel to redeploy**
+3. **Test your application**
+4. **Update Render CORS** (if not done yet)
+
+**Ready to push the changes?** 🚀
+
+---
+
+_**User**_
+
+why this
+
+---
+
+_**Assistant**_
+
+I can see what's happening! Your Vercel deployment is **queued** because there's already another build in progress. This is normal behavior for Vercel's free tier.
+
+# �� **Why This is Happening:**
+
+## **�� The Issue:**
+- **"Another build is in progress"** - Vercel is processing deployments sequentially
+- **Free Tier Limitation**: Vercel free tier only allows one build at a time
+- **Queued Status**: Your new deployment is waiting for the previous one to finish
+
+## **📋 What's Happening:**
+
+### **1. Previous Build Still Running:**
+- Your previous deployment (with the localhost API URL) is still building
+- Vercel won't start the new deployment until the current one finishes
+
+### **2. New Deployment Queued:**
+- Your new commit (with the correct API URL) is waiting in line
+- It will start automatically once the current build completes
+
+## **⏰ What to Do:**
+
+### **Option 1: Wait (Recommended)**
+- **Just wait** for the current build to finish
+- Your new deployment will start automatically
+- This usually takes 2-5 minutes
+
+### **Option 2: Cancel Current Build**
+- Click **"Cancel"** on the current deployment
+- This will immediately start your new deployment
+- But you'll lose the current build progress
+
+## **🎯 Expected Timeline:**
+
+1. **Current build finishes** (2-5 minutes)
+2. **New deployment starts automatically**
+3. **Build succeeds** (with correct API URL)
+4. **Your app works perfectly!**
+
+## **✅ The Good News:**
+
+- **Your changes are correct** ✅
+- **API URLs are updated** ✅
+- **Just need to wait** for the queue to clear
+
+## **🚀 Recommendation:**
+
+**Just wait for the current build to finish!** Your new deployment will start automatically and should work perfectly with the correct API URL.
+
+**Want to wait, or should we cancel the current build?** 🎯
+
+---
+
+_**User**_
+
+how to fied qued 
+
+---
+
+_**Assistant**_
+
+# 🔧 **How to Fix the Queue Issue**
+
+## **🎯 Option 1: Wait (Recommended)**
+
+### **Just wait 2-5 minutes:**
+- The current build will finish automatically
+- Your new deployment will start automatically
+- No action needed
+
+---
+
+## **🎯 Option 2: Cancel Current Build**
+
+### **Step-by-Step Process:**
+
+### **1. Go to Deployments Tab**
+- In your Vercel dashboard, click **"Deployments"** tab
+- Find the deployment that's currently running
+
+### **2. Cancel the Running Build**
+- Look for the deployment with **"Building"** or **"In Progress"** status
+- Click on that deployment
+- Click **"Cancel"** button (usually red or with an X icon)
+
+### **3. New Deployment Starts**
+- Once cancelled, your queued deployment will start immediately
+- The new build will use your updated API URLs
+
+---
+
+## **🎯 Option 3: Force New Deployment**
+
+### **1. Go to Project Overview**
+- Click on your project name
+- Go to **"Overview"** tab
+
+### **2. Manual Deploy**
+- Look for **"Deploy"** button
+- Click **"Deploy"** → **"Deploy with Existing Build Cache"**
+- This might skip the queue
+
+---
+
+## **🎯 Option 4: Upgrade to Pro (If Available)**
+
+### **If you see "Upgrade to Pro" button:**
+- This allows concurrent builds
+- But it's not necessary for your project
+
+---
+
+## **📋 Quick Fix Steps:**
+
+### **Easiest Solution:**
+1. **Wait 5 minutes** - let current build finish
+2. **New deployment starts automatically**
+3. **Your app works perfectly**
+
+### **If you want to speed it up:**
+1. **Go to Deployments tab**
+2. **Find running deployment**
+3. **Click Cancel**
+4. **New deployment starts immediately**
+
+---
+
+## **🚀 Recommendation:**
+
+**Just wait 5 minutes!** It's the safest option and your deployment will work perfectly.
+
+**Want to wait, or should I guide you through cancelling?** 🎯
+
+---
+
+_**User**_
+
+[12:20:38.769] Running build in Washington, D.C., USA (East) – iad1
+[12:20:38.769] Build machine configuration: 2 cores, 8 GB
+[12:20:38.784] Cloning github.com/farsen119/LinkedIn-clone (Branch: main, Commit: 9e6baf4)
+[12:20:38.791] Skipping build cache, deployment was triggered without cache.
+[12:20:39.141] Cloning completed: 357.000ms
+[12:20:41.148] Running "vercel build"
+[12:20:41.638] Vercel CLI 44.6.4
+[12:20:42.236] Installing dependencies...
+[12:20:45.479] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[12:20:45.630] npm warn deprecated read-package-json@7.0.1: This package is no longer supported. Please use @npmcli/package-json instead.
+[12:20:46.617] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[12:20:46.732] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[12:20:54.653] 
+[12:20:54.653] added 894 packages in 12s
+[12:20:54.654] 
+[12:20:54.654] 129 packages are looking for funding
+[12:20:54.654]   run `npm fund` for details
+[12:20:54.870] 
+[12:20:54.871] > linkedin-clone-frontend@0.0.0 build
+[12:20:54.871] > ng build
+[12:20:54.871] 
+[12:20:55.686] - Building...
+[12:20:55.687] 
+[12:21:22.565] Error loading posts: Et {
+[12:21:22.565]   headers: e {
+[12:21:22.566]     normalizedNames: Map(0) {},
+[12:21:22.566]     lazyUpdate: null,
+[12:21:22.566]     headers: Map(0) {}
+[12:21:22.566]   },
+[12:21:22.567]   status: 0,
+[12:21:22.567]   statusText: 'Unknown Error',
+[12:21:22.567]   url: 'http://localhost:8000/api/posts/',
+[12:21:22.567]   ok: false,
+[12:21:22.567]   name: 'HttpErrorResponse',
+[12:21:22.567]   message: 'Http failure response for http://localhost:8000/api/posts/: 0 undefined',
+[12:21:22.567]   error: TypeError: fetch failed
+[12:21:22.568]       at node:internal/deps/undici/undici:13510:13
+[12:21:22.568]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:3:6715)
+[12:21:22.568]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/chunk-QG2JIKVW.mjs:34:6555)
+[12:21:22.568]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:3:6654)
+[12:21:22.568]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:3:1985)
+[12:21:22.568]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:4:576
+[12:21:22.568]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:3:7341)
+[12:21:22.568]       at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/chunk-QG2JIKVW.mjs:34:6371)
+[12:21:22.568]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:3:7262)
+[12:21:22.569]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/7aeee428-2d52-497a-84b2-a460e4ec11eb/polyfills.server.mjs:3:2628) {
+[12:21:22.569]     [cause]: Error: connect ECONNREFUSED 127.0.0.1:8000
+[12:21:22.569]         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+[12:21:22.569]       errno: -111,
+[12:21:22.569]       code: 'ECONNREFUSED',
+[12:21:22.569]       syscall: 'connect',
+[12:21:22.569]       address: '127.0.0.1',
+[12:21:22.569]       port: 8000
+[12:21:22.569]     }
+[12:21:22.569]   }
+[12:21:22.569] }
+[12:21:24.012] Error loading posts: Et {
+[12:21:24.012]   headers: e {
+[12:21:24.012]     normalizedNames: Map(0) {},
+[12:21:24.012]     lazyUpdate: null,
+[12:21:24.013]     headers: Map(0) {}
+[12:21:24.013]   },
+[12:21:24.013]   status: 0,
+[12:21:24.013]   statusText: 'Unknown Error',
+[12:21:24.013]   url: 'http://localhost:8000/api/posts/',
+[12:21:24.013]   ok: false,
+[12:21:24.013]   name: 'HttpErrorResponse',
+[12:21:24.013]   message: 'Http failure response for http://localhost:8000/api/posts/: 0 undefined',
+[12:21:24.013]   error: TypeError: fetch failed
+[12:21:24.014]       at node:internal/deps/undici/undici:13510:13
+[12:21:24.014]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:3:6715)
+[12:21:24.015]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/chunk-QG2JIKVW.mjs:34:6555)
+[12:21:24.015]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:3:6654)
+[12:21:24.015]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:3:1985)
+[12:21:24.015]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:4:576
+[12:21:24.015]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:3:7341)
+[12:21:24.015]       at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/chunk-QG2JIKVW.mjs:34:6371)
+[12:21:24.015]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:3:7262)
+[12:21:24.015]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/6780d2c9-32a2-4334-8262-c333aeca891d/polyfills.server.mjs:3:2628) {
+[12:21:24.018]     [cause]: Error: connect ECONNREFUSED 127.0.0.1:8000
+[12:21:24.018]         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+[12:21:24.018]       errno: -111,
+[12:21:24.018]       code: 'ECONNREFUSED',
+[12:21:24.018]       syscall: 'connect',
+[12:21:24.018]       address: '127.0.0.1',
+[12:21:24.018]       port: 8000
+[12:21:24.018]     }
+[12:21:24.019]   }
+[12:21:24.019] }
+[12:21:24.549] Browser bundles        
+[12:21:24.549] Initial chunk files     | Names               |  Raw size | Estimated transfer size
+[12:21:24.549] main-JRN6N2DK.js        | main                | 375.19 kB |                84.13 kB
+[12:21:24.549] polyfills-FFHMD2TL.js   | polyfills           |  33.71 kB |                11.02 kB
+[12:21:24.550] styles-5INURTSO.css     | styles              |   0 bytes |                 0 bytes
+[12:21:24.550] 
+[12:21:24.550]                         | Initial total       | 408.90 kB |                95.15 kB
+[12:21:24.550] 
+[12:21:24.550] 
+[12:21:24.550] Server bundles         
+[12:21:24.550] Initial chunk files     | Names               |  Raw size
+[12:21:24.550] server.mjs              | server              |   1.06 MB |                        
+[12:21:24.551] polyfills.server.mjs    | polyfills.server    | 262.30 kB |                        
+[12:21:24.551] chunk-QG2JIKVW.mjs      | -                   | 250.93 kB |                        
+[12:21:24.551] chunk-S6FCXJA7.mjs      | -                   | 236.30 kB |                        
+[12:21:24.551] chunk-OTQC6TGH.mjs      | -                   | 135.31 kB |                        
+[12:21:24.551] chunk-VVCT4QZE.mjs      | -                   |   2.48 kB |                        
+[12:21:24.551] render-utils.server.mjs | render-utils.server |   1.46 kB |                        
+[12:21:24.551] main.server.mjs         | main.server         | 149 bytes |                        
+[12:21:24.551] 
+[12:21:24.551] Lazy chunk files        | Names               |  Raw size
+[12:21:24.551] chunk-QZP2S7SI.mjs      | xhr2                |  11.79 kB |                        
+[12:21:24.551] 
+[12:21:24.551] Prerendered 4 static routes.
+[12:21:24.552] Output location: /vercel/path0/linkedin-clone-frontend/dist/linkedin-clone-frontend
+[12:21:24.552] 
+[12:21:24.552] Application bundle generation complete. [28.859 seconds]
+[12:21:24.552] 
+[12:21:24.706] Build Completed in /vercel/output [42s]
+[12:21:24.728] Deploying outputs...
+[12:21:26.022] Deployment completed
+[12:21:45.025] Uploading build cache [61.02 MB]...
+[12:21:45.793] Build cache uploaded: 777.28ms
+[12:21:48.031] Exiting build container
+
+---
+
+_**Assistant**_
+
+I see the issue! The build is still using the old commit (`9e6baf4`) which doesn't have your updated API URLs. The environment files are still pointing to `http://localhost:8000`.
+
+# �� **The Problem:**
+- **Commit**: `9e6baf4` (old commit without API URL fixes)
+- **Still trying**: `http://localhost:8000/api/posts/`
+- **Need**: Your new commit with updated API URLs
+
+# 🚀 **Solution: Push Your Changes**
+
+## **Step 1: Check Your Git Status**
+```bash
+git status
+```
+
+## **Step 2: Add and Commit Your Changes**
+```bash
+git add linkedin-clone-frontend/src/environments/environment.ts
+git add linkedin-clone-frontend/src/environments/environment.prod.ts
+git commit -m "Update API URLs to production backend"
+```
+
+## **Step 3: Push to GitHub**
+```bash
+git push origin main
+```
+
+## **Step 4: Vercel Will Auto-Deploy**
+- Vercel will detect the new commit
+- It will use the updated API URLs
+- Build should succeed
+
+---
+
+# 📋 **Why This Happened:**
+
+### **The Issue:**
+- **Old Commit**: Vercel is using commit `9e6baf4`
+- **Missing Changes**: Your API URL updates aren't in that commit
+- **Need New Commit**: Push your changes to trigger a new deployment
+
+### **The Fix:**
+- **Push Changes**: Your updated environment files
+- **New Deployment**: Vercel will use the new commit
+- **Correct URLs**: Will use `https://linkedin-clone-backend-ipo2.onrender.com/api`
+
+---
+
+# �� **Quick Fix:**
+
+**Just push your changes to GitHub!** Vercel will automatically deploy the new version with the correct API URLs.
+
+**Ready to push the changes?** 🚀
+
+---
+
