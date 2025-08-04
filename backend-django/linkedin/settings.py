@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'linkedin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'test_db',
-        'USER': 'root',
-        'PASSWORD': 'farseen',
-        'HOST': '127.0.0.1',
-        'PORT' : '3306'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myprojectdb',
+        'USER': 'farseen',
+        'PASSWORD': 'Abc@123',
+        'HOST': 'localhost',
+        'PORT' : '5432'
 
     }
 }
