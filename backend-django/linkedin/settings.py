@@ -79,17 +79,26 @@ WSGI_APPLICATION = 'linkedin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myprojectdb',
-        'USER': 'farseen',
-        'PASSWORD': 'Abc@123',
-        'HOST': 'localhost',
-        'PORT' : '5432'
+import os
+import dj_database_url
 
+# Use DATABASE_URL environment variable for production
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    # Local development database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'myprojectdb',
+            'USER': 'farseen',
+            'PASSWORD': 'Abc@123',
+            'HOST': 'localhost',
+            'PORT': '5432'
+        }
+    }
 
 
 # Password validation
