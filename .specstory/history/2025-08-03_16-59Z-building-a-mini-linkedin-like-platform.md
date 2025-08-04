@@ -31016,3 +31016,361 @@ Your app will work perfectly once this deploys! 🎉
 
 ---
 
+_**User**_
+
+[12:32:50.731] Running build in Washington, D.C., USA (East) – iad1
+[12:32:50.738] Build machine configuration: 2 cores, 8 GB
+[12:32:50.815] Cloning github.com/farsen119/LinkedIn-clone (Branch: main, Commit: 9e6baf4)
+[12:32:50.835] Skipping build cache, deployment was triggered without cache.
+[12:32:52.070] Cloning completed: 1.255s
+[12:32:54.333] Running "vercel build"
+[12:32:54.841] Vercel CLI 44.6.4
+[12:32:55.430] Installing dependencies...
+[12:32:58.703] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[12:32:58.705] npm warn deprecated read-package-json@7.0.1: This package is no longer supported. Please use @npmcli/package-json instead.
+[12:32:59.651] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[12:32:59.888] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[12:33:07.817] 
+[12:33:07.818] added 894 packages in 12s
+[12:33:07.818] 
+[12:33:07.818] 129 packages are looking for funding
+[12:33:07.818]   run `npm fund` for details
+[12:33:08.102] 
+[12:33:08.114] > linkedin-clone-frontend@0.0.0 build
+[12:33:08.122] > ng build
+[12:33:08.132] 
+[12:33:09.065] - Building...
+[12:33:09.065] 
+[12:33:34.803] Error loading posts: Et {
+[12:33:34.804]   headers: e {
+[12:33:34.804]     normalizedNames: Map(0) {},
+[12:33:34.804]     lazyUpdate: null,
+[12:33:34.804]     headers: Map(0) {}
+[12:33:34.805]   },
+[12:33:34.805]   status: 0,
+[12:33:34.805]   statusText: 'Unknown Error',
+[12:33:34.805]   url: 'http://localhost:8000/api/posts/',
+[12:33:34.805]   ok: false,
+[12:33:34.805]   name: 'HttpErrorResponse',
+[12:33:34.805]   message: 'Http failure response for http://localhost:8000/api/posts/: 0 undefined',
+[12:33:34.805]   error: TypeError: fetch failed
+[12:33:34.806]       at node:internal/deps/undici/undici:13510:13
+[12:33:34.806]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:3:6715)
+[12:33:34.806]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/chunk-QG2JIKVW.mjs:34:6555)
+[12:33:34.806]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:3:6654)
+[12:33:34.806]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:3:1985)
+[12:33:34.806]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:4:576
+[12:33:34.806]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:3:7341)
+[12:33:34.806]       at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/chunk-QG2JIKVW.mjs:34:6371)
+[12:33:34.806]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:3:7262)
+[12:33:34.807]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/118622aa-6881-47dd-9f32-a2303ca35e54/polyfills.server.mjs:3:2628) {
+[12:33:34.807]     [cause]: Error: connect ECONNREFUSED 127.0.0.1:8000
+[12:33:34.809]         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+[12:33:34.809]       errno: -111,
+[12:33:34.809]       code: 'ECONNREFUSED',
+[12:33:34.809]       syscall: 'connect',
+[12:33:34.809]       address: '127.0.0.1',
+[12:33:34.809]       port: 8000
+[12:33:34.809]     }
+[12:33:34.809]   }
+[12:33:34.809] }
+[12:33:36.314] Error loading posts: Et {
+[12:33:36.315]   headers: e {
+[12:33:36.315]     normalizedNames: Map(0) {},
+[12:33:36.315]     lazyUpdate: null,
+[12:33:36.315]     headers: Map(0) {}
+[12:33:36.316]   },
+[12:33:36.316]   status: 0,
+[12:33:36.316]   statusText: 'Unknown Error',
+[12:33:36.316]   url: 'http://localhost:8000/api/posts/',
+[12:33:36.316]   ok: false,
+[12:33:36.317]   name: 'HttpErrorResponse',
+[12:33:36.317]   message: 'Http failure response for http://localhost:8000/api/posts/: 0 undefined',
+[12:33:36.317]   error: TypeError: fetch failed
+[12:33:36.317]       at node:internal/deps/undici/undici:13510:13
+[12:33:36.317]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:3:6715)
+[12:33:36.317]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/chunk-QG2JIKVW.mjs:34:6555)
+[12:33:36.318]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:3:6654)
+[12:33:36.318]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:3:1985)
+[12:33:36.318]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:4:576
+[12:33:36.318]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:3:7341)
+[12:33:36.318]       at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/chunk-QG2JIKVW.mjs:34:6371)
+[12:33:36.319]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:3:7262)
+[12:33:36.319]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/8f4d8d6c-a774-40e1-9436-6dc94c57ce7f/polyfills.server.mjs:3:2628) {
+[12:33:36.319]     [cause]: Error: connect ECONNREFUSED 127.0.0.1:8000
+[12:33:36.319]         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+[12:33:36.319]       errno: -111,
+[12:33:36.319]       code: 'ECONNREFUSED',
+[12:33:36.320]       syscall: 'connect',
+[12:33:36.320]       address: '127.0.0.1',
+[12:33:36.320]       port: 8000
+[12:33:36.320]     }
+[12:33:36.320]   }
+[12:33:36.320] }
+[12:33:36.822] Browser bundles        
+[12:33:36.822] Initial chunk files     | Names               |  Raw size | Estimated transfer size
+[12:33:36.823] main-JRN6N2DK.js        | main                | 375.19 kB |                84.13 kB
+[12:33:36.823] polyfills-FFHMD2TL.js   | polyfills           |  33.71 kB |                11.02 kB
+[12:33:36.823] styles-5INURTSO.css     | styles              |   0 bytes |                 0 bytes
+[12:33:36.823] 
+[12:33:36.823]                         | Initial total       | 408.90 kB |                95.15 kB
+[12:33:36.823] 
+[12:33:36.823] 
+[12:33:36.824] Server bundles         
+[12:33:36.824] Initial chunk files     | Names               |  Raw size
+[12:33:36.824] server.mjs              | server              |   1.06 MB |                        
+[12:33:36.824] polyfills.server.mjs    | polyfills.server    | 262.30 kB |                        
+[12:33:36.824] chunk-QG2JIKVW.mjs      | -                   | 250.93 kB |                        
+[12:33:36.824] chunk-S6FCXJA7.mjs      | -                   | 236.30 kB |                        
+[12:33:36.824] chunk-OTQC6TGH.mjs      | -                   | 135.31 kB |                        
+[12:33:36.825] chunk-VVCT4QZE.mjs      | -                   |   2.48 kB |                        
+[12:33:36.825] render-utils.server.mjs | render-utils.server |   1.46 kB |                        
+[12:33:36.825] main.server.mjs         | main.server         | 149 bytes |                        
+[12:33:36.825] 
+[12:33:36.825] Lazy chunk files        | Names               |  Raw size
+[12:33:36.826] chunk-QZP2S7SI.mjs      | xhr2                |  11.79 kB |                        
+[12:33:36.826] 
+[12:33:36.826] Prerendered 4 static routes.
+[12:33:36.826] Output location: /vercel/path0/linkedin-clone-frontend/dist/linkedin-clone-frontend
+[12:33:36.826] 
+[12:33:36.826] Application bundle generation complete. [27.753 seconds]
+[12:33:36.826] 
+[12:33:36.976] Build Completed in /vercel/output [42s]
+[12:33:36.997] Deploying outputs...
+[12:33:38.461] Deployment completed
+[12:33:57.415] Uploading build cache [61.02 MB]...
+[12:33:58.223] Build cache uploaded: 812.521ms
+[12:34:00.492] Exiting build container
+
+---
+
+_**Assistant**_
+
+I see the issue! The build is still using the old commit (`9e6baf4`) which doesn't have your updated API URLs. Even though you changed the `angular.json` file, Vercel is still using the old commit.
+
+# �� **The Problem:**
+- **Commit**: `9e6baf4` (old commit without API URL fixes)
+- **Still trying**: `http://localhost:8000/api/posts/`
+- **Need**: Your new commit with updated API URLs
+
+# 🚀 **Solution: Push Your Changes**
+
+## **Step 1: Check Your Git Status**
+```bash
+git status
+```
+
+## **Step 2: Add and Commit Your Changes**
+```bash
+git add linkedin-clone-frontend/src/environments/environment.ts
+git add linkedin-clone-frontend/src/environments/environment.prod.ts
+git add linkedin-clone-frontend/angular.json
+git commit -m "Update API URLs and disable prerendering"
+```
+
+## **Step 3: Push to GitHub**
+```bash
+git push origin main
+```
+
+## **Step 4: Vercel Will Auto-Deploy**
+- Vercel will detect the new commit
+- It will use the updated API URLs
+- Build should succeed
+
+---
+
+# 📋 **Why This Happened:**
+
+### **The Issue:**
+- **Old Commit**: Vercel is using commit `9e6baf4`
+- **Missing Changes**: Your API URL updates aren't in that commit
+- **Need New Commit**: Push your changes to trigger a new deployment
+
+### **The Fix:**
+- **Push Changes**: Your updated environment files and angular.json
+- **New Deployment**: Vercel will use the new commit
+- **Correct URLs**: Will use `https://linkedin-clone-backend-ipo2.onrender.com/api`
+
+---
+
+# �� **Quick Fix:**
+
+**Just push your changes to GitHub!** Vercel will automatically deploy the new version with the correct API URLs and disabled prerendering.
+
+**Ready to push the changes?** 🚀
+
+Your app will work perfectly once this deploys! 🎉
+
+---
+
+_**User**_
+
+PS C:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone> git status
+>>
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Users\FARSEEN KP\OneDrive\Desktop\linkdn-clone> 
+
+---
+
+_**Assistant**_
+
+I see the issue! Your git status shows "nothing to commit, working tree clean" which means the changes we made to the environment files and angular.json are not being tracked by git.
+
+# 🔧 **Check if Files Were Actually Changed**
+
+## **Step 1: Check if the Files Exist**
+```bash
+ls linkedin-clone-frontend/src/environments/
+```
+
+## **Step 2: Check the Content of Environment Files**
+```bash
+cat linkedin-clone-frontend/src/environments/environment.ts
+cat linkedin-clone-frontend/src/environments/environment.prod.ts
+```
+
+## **Step 3: Check Angular Config**
+```bash
+cat linkedin-clone-frontend/angular.json
+```
+
+---
+
+# �� **If Files Are Not Changed, Let's Fix Them**
+
+## **Option 1: Check if Changes Were Applied**
+The changes might not have been saved properly. Let's verify:
+
+### **Check Environment Files:**
+- `environment.ts` should have: `apiUrl: 'https://linkedin-clone-backend-ipo2.onrender.com/api'`
+- `environment.prod.ts` should have: `apiUrl: 'https://linkedin-clone-backend-ipo2.onrender.com/api'`
+
+### **Check Angular Config:**
+- `angular.json` should have: `"prerender": false`
+
+---
+
+# 📋 **If Files Are Correct, Force a New Commit**
+
+## **Step 1: Make a Small Change**
+```bash
+echo "// Updated for production" >> linkedin-clone-frontend/src/environments/environment.ts
+```
+
+## **Step 2: Commit and Push**
+```bash
+git add .
+git commit -m "Force update for production deployment"
+git push origin main
+```
+
+---
+
+# 🎯 **Alternative: Check Vercel Settings**
+
+### **Go to Vercel Dashboard:**
+1. **Settings** → **Environment Variables**
+2. **Add**: `API_URL = https://linkedin-clone-backend-ipo2.onrender.com/api`
+3. **Redeploy** the project
+
+---
+
+**Can you check the content of those files first?** Let me know what you see in the environment files and angular.json! 🚀
+
+---
+
+_**User**_
+
+in vercelk how to redeploy latest commit
+
+---
+
+_**Assistant**_
+
+# 🔧 **How to Redeploy Latest Commit in Vercel**
+
+## **🎯 Method 1: Manual Redeploy (Easiest)**
+
+### **1. Go to Vercel Dashboard**
+- Visit [vercel.com](https://vercel.com)
+- Sign in to your account
+
+### **2. Find Your Project**
+- Click on your project: `linked-in-clone`
+
+### **3. Go to Deployments Tab**
+- Click on **"Deployments"** tab in the navigation
+
+### **4. Find Latest Deployment**
+- Look for your latest deployment
+- Click on it to open deployment details
+
+### **5. Click Redeploy**
+- Look for **"Redeploy"** button (usually blue)
+- Click **"Redeploy"** → **"Deploy with Existing Build Cache"**
+
+---
+
+## **🎯 Method 2: From Project Overview**
+
+### **1. Go to Project Overview**
+- Click on your project name
+- You should be on the **"Overview"** tab
+
+### **2. Find Deploy Button**
+- Look for a **"Deploy"** button (usually in the top right)
+- Click **"Deploy"** → **"Deploy with Existing Build Cache"**
+
+---
+
+## **🎯 Method 3: Force New Commit**
+
+### **1. Make a Small Change**
+```bash
+echo "// Force redeploy" >> README.md
+```
+
+### **2. Commit and Push**
+```bash
+git add README.md
+git commit -m "Force redeploy"
+git push origin main
+```
+
+### **3. Vercel Auto-Deploys**
+- Vercel will automatically detect the new commit
+- It will start a new deployment
+
+---
+
+## **🎯 Method 4: From Deployment Details**
+
+### **1. Go to Latest Deployment**
+- Click on your latest deployment
+- Look for **"..."** (three dots menu)
+- Click **"Redeploy"**
+
+---
+
+## **📋 Quick Steps:**
+
+### **Easiest Way:**
+1. **Go to Deployments tab**
+2. **Click on latest deployment**
+3. **Click "Redeploy"**
+4. **Wait for deployment to complete**
+
+---
+
+## **🚀 Which Method Do You Want to Try?**
+
+**I recommend Method 1 (Manual Redeploy) - it's the quickest!**
+
+Need help finding the Redeploy button? 🎯
+
+---
+
