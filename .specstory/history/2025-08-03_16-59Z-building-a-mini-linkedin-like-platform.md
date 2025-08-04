@@ -28431,3 +28431,15 @@ But for now, the increased budget limits will solve your deployment issue! 🚀
 
 ---
 
+_**User**_
+
+can you update teh readme.md file ,i am using postgrsql
+
+---
+
+_**Assistant**_
+
+
+
+---
+
