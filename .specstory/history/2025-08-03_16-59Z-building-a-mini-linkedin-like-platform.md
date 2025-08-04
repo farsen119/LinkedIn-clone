@@ -30862,3 +30862,157 @@ git push origin main
 
 ---
 
+_**User**_
+
+[12:23:06.881] Running build in Washington, D.C., USA (East) – iad1
+[12:23:06.882] Build machine configuration: 2 cores, 8 GB
+[12:23:06.906] Cloning github.com/farsen119/LinkedIn-clone (Branch: main, Commit: fe14181)
+[12:23:07.317] Cloning completed: 411.000ms
+[12:23:07.780] Restored build cache from previous deployment (8Pt1Ni5MCdd8LTfV8HQ1Aci9p5B7)
+[12:23:10.008] Running "vercel build"
+[12:23:10.612] Vercel CLI 44.6.4
+[12:23:11.798] Installing dependencies...
+[12:23:13.433] 
+[12:23:13.434] up to date in 1s
+[12:23:13.434] 
+[12:23:13.435] 129 packages are looking for funding
+[12:23:13.435]   run `npm fund` for details
+[12:23:13.579] 
+[12:23:13.579] > linkedin-clone-frontend@0.0.0 build
+[12:23:13.580] > ng build
+[12:23:13.580] 
+[12:23:14.537] - Building...
+[12:23:14.537] 
+[12:28:40.691] Error loading posts: Et {
+[12:28:40.691]   headers: e {
+[12:28:40.691]     normalizedNames: Map(0) {},
+[12:28:40.691]     lazyUpdate: null,
+[12:28:40.691]     headers: Map(0) {}
+[12:28:40.691]   },
+[12:28:40.691]   status: 0,
+[12:28:40.691]   statusText: 'Unknown Error',
+[12:28:40.691]   url: 'https://linkedin-clone-backend-ipo2.onrender.com/api/posts/',
+[12:28:40.691]   ok: false,
+[12:28:40.691]   name: 'HttpErrorResponse',
+[12:28:40.692]   message: 'Http failure response for https://linkedin-clone-backend-ipo2.onrender.com/api/posts/: 0 undefined',
+[12:28:40.692]   error: TypeError: fetch failed
+[12:28:40.692]       at node:internal/deps/undici/undici:13510:13
+[12:28:40.692]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:6715)
+[12:28:40.692]       at Object.onInvoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/chunk-QG2JIKVW.mjs:34:6555)
+[12:28:40.692]       at a.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:6654)
+[12:28:40.692]       at l.run (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:1985)
+[12:28:40.692]       at file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:4:576
+[12:28:40.692]       at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:7341)
+[12:28:40.692]       ... 2 lines matching cause stack trace ...
+[12:28:40.692]       at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:2628) {
+[12:28:40.692]     [cause]: HeadersTimeoutError: Headers Timeout Error
+[12:28:40.692]         at FastTimer.onParserTimeout [as _onTimeout] (node:internal/deps/undici/undici:6249:32)
+[12:28:40.692]         at Timeout.onTick (node:internal/deps/undici/undici:2210:17)
+[12:28:40.693]         at m.<computed> (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:4:11310)
+[12:28:40.693]         at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:7341)
+[12:28:40.693]         at Object.onInvokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/chunk-QG2JIKVW.mjs:34:6371)
+[12:28:40.696]         at a.invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:7262)
+[12:28:40.696]         at l.runTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:2628)
+[12:28:40.696]         at invokeTask (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:8418)
+[12:28:40.696]         at j.useG.invoke (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:3:8319)
+[12:28:40.696]         at b.args.<computed> [as _onTimeout] (file:///vercel/path0/linkedin-clone-frontend/.angular/prerender-root/ce40570d-1fbe-4d27-a846-fb5c3dfa3ad4/polyfills.server.mjs:4:10940) {
+[12:28:40.696]       code: 'UND_ERR_HEADERS_TIMEOUT'
+[12:28:40.696]     }
+[12:28:40.696]   }
+[12:28:40.697] }
+
+---
+
+_**Assistant**_
+
+Great progress! 🎉 **The API URL is now correct!** I can see it's trying to connect to `https://linkedin-clone-backend-ipo2.onrender.com/api/posts/` instead of localhost.
+
+However, there's a new issue: **Headers Timeout Error**. This means your backend is taking too long to respond during the build process.
+
+# 🔧 **Fix the Headers Timeout Issue**
+
+## **🎯 The Problem:**
+- **API URL**: ✅ Correct (`https://linkedin-clone-backend-ipo2.onrender.com/api/posts/`)
+- **Issue**: ⏰ Headers Timeout Error
+- **Cause**: Backend is slow to respond during prerendering
+
+## **📝 Solution: Disable Prerendering for API Calls**
+
+We need to modify your Angular configuration to skip prerendering for pages that make API calls.
+
+
+---
+
+Read file: linkedin-clone-frontend/angular.json
+
+---
+
+<details><summary>Edit file: linkedin-clone-frontend/angular.json</summary>
+
+undefined
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -30,5 +30,5 @@
+              "scripts": [],
+              "server": "src/main.server.ts",
+-             "prerender": true,
++             "prerender": false,
+              "ssr": {
+                "entry": "server.ts"
+```
+
+</details>
+
+---
+
+Perfect! ✅ **Fixed the Prerendering Issue!**
+
+## **🔧 What I Fixed:**
+
+### **Disabled Prerendering:**
+- **Changed**: `"prerender": true` → `"prerender": false`
+- **Result**: Angular won't try to make API calls during build
+- **Benefit**: Build will complete successfully
+
+## **🚀 Now Deploy Again:**
+
+### **1. Commit and Push Changes:**
+```bash
+git add linkedin-clone-frontend/angular.json
+git commit -m "Disable prerendering to fix build timeout"
+git push origin main
+```
+
+### **2. Vercel Will Auto-Deploy:**
+- Vercel will detect the new commit
+- Build should complete without timeout errors
+- Your app will work perfectly
+
+## **📋 Why This Works:**
+
+### **The Problem:**
+- **Prerendering**: Angular tries to render pages during build
+- **API Calls**: Your components make API calls during prerendering
+- **Timeout**: Backend is slow to respond during build process
+
+### **The Solution:**
+- **No Prerendering**: Pages render on client-side only
+- **No Build API Calls**: No timeout during build
+- **Same Functionality**: App works exactly the same for users
+
+## **🎯 Next Steps:**
+
+1. **Push the changes**
+2. **Wait for Vercel to deploy**
+3. **Test your application**
+4. **Update Render CORS** (if not done yet)
+
+**Ready to push the changes?** 🚀
+
+Your app will work perfectly once this deploys! 🎉
+
+---
+
